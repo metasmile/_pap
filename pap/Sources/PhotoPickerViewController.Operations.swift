@@ -34,7 +34,7 @@ extension PhotoPickerViewController{
     }
 
     @objc func cancelAllSelection() {
-        self.allowSelection = false
+        self.isSelectionMode = false
     }
 }
 

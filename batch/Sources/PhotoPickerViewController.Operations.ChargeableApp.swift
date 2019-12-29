@@ -92,18 +92,18 @@ extension PhotoPickerViewController{
         rightButtonItem.action = #selector(self.chargeableButtonDidTapWhenDeselected)
         
         var barButtonItems = [UIBarButtonItem]()
-        if !self.allowSelection {
+        if !self.isSelectionMode {
             barButtonItems.append(UIBarButtonItem(title: "Select".localized, style: .plain, target: self, action: #selector(self.selectButtonDidTap)))
         }
         barButtonItems.append(rightButtonItem)
         
         navigationItem.setRightBarButtonItems(barButtonItems, animated: false)
 
-        return self.allowSelection && selected
+        return self.isSelectionMode && selected
     }
     
     @objc fileprivate func selectButtonDidTap() {
-        self.allowSelection = true
+        self.isSelectionMode = true
     }
 
     @objc fileprivate func chargeableButtonDidTapWhenSelected(sender: Any) {

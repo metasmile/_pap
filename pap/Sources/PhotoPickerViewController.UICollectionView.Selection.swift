@@ -20,8 +20,8 @@ extension PhotoPickerViewController{
             return false
         }
         
-        if !self.allowSelection {
-            self.allowSelection = true
+        if !self.isSelectionMode {
+            self.isSelectionMode = true
         }
         
         photoCollectionView.selectItem(at: indexPath, animated: animated, scrollPosition: scrollPosition ?? [])

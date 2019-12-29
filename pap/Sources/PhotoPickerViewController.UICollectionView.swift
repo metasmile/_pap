@@ -58,7 +58,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         scrollToBottomIfNeeded()
         
         (cell as? PhotoCollectionViewCell)?.isEnabled = self.shouldSelectPhoto(at: indexPath)
-        (cell as? PhotoCollectionViewCell)?.isSelectable = self.allowSelection
+        (cell as? PhotoCollectionViewCell)?.isSelectable = self.isSelectionMode
     }
     
     func shouldSelectPhoto(at indexPath: IndexPath) -> Bool {
@@ -101,7 +101,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if allowSelection && shouldSelectPhoto(at: indexPath) {
+        if isSelectionMode && shouldSelectPhoto(at: indexPath) {
             updateUIDisplays()
 
             if let asset = PHAssets.fetched.asset(at: indexPath){
@@ -117,7 +117,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
         else {
             collectionView.deselectItem(at: indexPath, animated: false)
             
-            if let asset = PHAssets.fetched.asset(at: indexPath), !allowSelection {
+            if let asset = PHAssets.fetched.asset(at: indexPath), !isSelectionMode {
                 let item = AppAsset.create(for:asset)
                 if let app = AppCenter.default.currentInstanceAs(EditableApp.self), let value = app.defaultEditStateValue {
                     item?.editState.append(value)
@@ -133,7 +133,7 @@ extension PhotoPickerViewController: UICollectionViewDataSource, UICollectionVie
     }
 
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        if allowSelection {
+        if isSelectionMode {
             guard let asset = PHAssets.fetched.asset(at: indexPath) else { return }
             batchPreviewView.removeCollectionViewItems(with: [asset])
 

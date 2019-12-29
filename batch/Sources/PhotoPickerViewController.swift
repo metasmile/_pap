@@ -73,9 +73,9 @@ class PhotoPickerViewController: AppDockViewController {
         photoCollectionView.setContentOffset(CGPoint(x: 0, y: scrollingBottomOffsetY), animated: animated)
     }
 
-    var allowSelection = false {
+    var isSelectionMode = false {
         didSet {
-            if allowSelection == true {
+            if isSelectionMode == true {
                 updateNavigationLeftBarButton()
 
                 updateUIDisplays()
@@ -428,7 +428,7 @@ class PhotoPickerViewController: AppDockViewController {
         let numberOfItems = numberOfPhotos + numberOfVideos
 
         if numberOfItems == 0 {
-            if allowSelection {
+            if isSelectionMode {
                 title = "Select items".localized
             }
             else {
@@ -503,7 +503,7 @@ class PhotoPickerViewController: AppDockViewController {
     internal func updateNavigationLeftBarButton() {
         if PHPhotoLibrary.authorizationStatus() == .authorized {
             navigationItem.hidesBackButton = false
-            if updateDoneButtonChargeableState() || self.allowSelection {
+            if updateDoneButtonChargeableState() || self.isSelectionMode {
                 if let app = AppCenter.default.currentInstanceAs(Recordable.self) {
                     self.updateUndoButtonStatus(app)
 
@@ -585,7 +585,7 @@ class PhotoPickerViewController: AppDockViewController {
         for indexPath in photoCollectionView.indexPathsForVisibleItems{
             let cell = photoCollectionView.cellForItem(at: indexPath) as? PhotoCollectionViewCell
             cell?.isEnabled = shouldSelectPhoto(at: indexPath)
-            cell?.isSelectable = self.allowSelection
+            cell?.isSelectable = self.isSelectionMode
         }
     }
 
@@ -821,9 +821,9 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
         guard let asset = photoEditor.asset else { return }
 
         if let indexPath = indexPath {
-            if let editItem = editItem, (editItem.hasChanges || !allowSelection) {
-                if !allowSelection {
-                    allowSelection = true
+            if let editItem = editItem, (editItem.hasChanges || !isSelectionMode) {
+                if !isSelectionMode {
+                    isSelectionMode = true
                 }
 
                 if AppAssets.selected.by(asset) == nil{
@@ -992,7 +992,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         progressBar.isHidden = true
 
         if !assets.isEmpty {
-            allowSelection = false
+            isSelectionMode = false
         }
 
         //POLICY: no keeps selected items

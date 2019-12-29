@@ -73,9 +73,9 @@ class PhotoPickerViewController: AppDockViewController {
         photoCollectionView.setContentOffset(CGPoint(x: 0, y: scrollingBottomOffsetY), animated: animated)
     }
 
-    var allowSelection = false {
+    var isSelectionMode = false {
         didSet {
-            if allowSelection {
+            if isSelectionMode {
                 
                 updateUIDisplays()
                 updateVisibleCellsEnabled()
@@ -303,7 +303,7 @@ class PhotoPickerViewController: AppDockViewController {
         }
         
         if (AppCenter.default.current as? AppDockApp.Type)?.fixedContentLayout == true || AppAssets.selected.count == 0 {
-            allowSelection = false
+            isSelectionMode = false
         }
 
         redisplayVisibleCellsEnabled()
@@ -426,7 +426,7 @@ class PhotoPickerViewController: AppDockViewController {
         let numberOfItems = numberOfPhotos + numberOfVideos
 
         if numberOfItems == 0 {
-            if allowSelection {
+            if isSelectionMode {
                 title = "Select items".localized
             }
             else {
@@ -466,7 +466,7 @@ class PhotoPickerViewController: AppDockViewController {
         updateNavigationLeftBarButton()
         updateNavigationRightBarButton()
 
-        if allowSelection && estimatedAvailableSelectedItems > 0 {
+        if isSelectionMode && estimatedAvailableSelectedItems > 0 {
             if appDockView?.accessory == nil {
                 appDockView?.accessory = batchPreviewView
             }
@@ -502,7 +502,7 @@ class PhotoPickerViewController: AppDockViewController {
     internal func updateNavigationLeftBarButton() {
         if PHPhotoLibrary.authorizationStatus() == .authorized {
             navigationItem.hidesBackButton = false
-            if allowSelection {
+            if isSelectionMode {
                 if let app = AppCenter.default.currentInstanceAs(Recordable.self) {
                     self.updateUndoButtonStatus(app)
 
@@ -546,7 +546,7 @@ class PhotoPickerViewController: AppDockViewController {
             
         } else {  // Configure Non-Done button
             
-            if allowSelection {
+            if isSelectionMode {
                 navigationItem.setRightBarButtonItems(nil, animated: true)
             } else {
                 navigationItem.setRightBarButtonItems([UIBarButtonItem(title: "Select".localized, style: .plain, target: self, action: #selector(self.selectButtonDidTap))], animated: true)
@@ -556,7 +556,7 @@ class PhotoPickerViewController: AppDockViewController {
     
     // Copied from func updateDoneButtonChargeableState - batch/Sources/PhotoPickerViewController.Operations.ChargeableApp.swift
     @objc fileprivate func selectButtonDidTap() {
-        self.allowSelection = true
+        self.isSelectionMode = true
     }
 
     var estimatedAvailableSelectedItems:Int{
@@ -614,7 +614,7 @@ class PhotoPickerViewController: AppDockViewController {
         for indexPath in photoCollectionView.indexPathsForVisibleItems{
             let cell = photoCollectionView.cellForItem(at: indexPath) as? PhotoCollectionViewCell
             cell?.isEnabled = shouldSelectPhoto(at: indexPath)
-            cell?.isSelectable = self.allowSelection
+            cell?.isSelectable = self.isSelectionMode
         }
     }
 
@@ -850,9 +850,9 @@ extension PhotoPickerViewController: EditViewControllerDelegate {
         guard let asset = photoEditor.asset else { return }
 
         if let indexPath = indexPath {
-            if let editItem = editItem, (editItem.hasChanges || !allowSelection) {
-                if !allowSelection {
-                    allowSelection = true
+            if let editItem = editItem, (editItem.hasChanges || !isSelectionMode) {
+                if !isSelectionMode {
+                    isSelectionMode = true
                 }
 
                 if AppAssets.selected.by(asset) == nil{
@@ -1021,7 +1021,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         progressBar.isHidden = true
 
         if !assets.isEmpty {
-            allowSelection = false
+            isSelectionMode = false
         }
 
         //POLICY: no keeps selected items
