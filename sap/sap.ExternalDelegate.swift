@@ -5,7 +5,9 @@
 
 import Foundation
 
-//INFO: if remove this swift file, automatically normal policy
+/// INFO:
+/// An example of sub app case
+/// if remove this swift file, automatically normal policy
 
 extension AppColorTheme:AppColorDefaultThemeExternalDelegate{
     private(set) static var theme: AppColorTheme = .dark
@@ -26,5 +28,12 @@ extension AppDelegate: AppDelegateExternalDelegate{
 extension AppCenter:AppCenterExternalDelegate{
     static var defaultConfig: AppManagerConfig {
         return AppCenter.defaultConfigWholeUniversal
+
+        /// Example: Support only artist app.
+//        return AppManagerConfig(
+//                appCollection: [ArtistApp.self]
+//                , initialApp: nil
+//                , taskManager: nil
+//        )
     }
 }
