@@ -27,6 +27,7 @@ extension ImageSourceable{
 
 public protocol BundleImageSourceable:Sourceable {
     var asUIImageNamed:UIImage? { get }
+    var asUIImageSystemName:UIImage? { get }
     var asUIImageContentOfFile:UIImage? { get }
 }
 
@@ -229,8 +230,16 @@ extension String: ImageSourceable, BundleImageSourceable, DataSourceable, URLSou
             return image
         }
 
+        if let image = asUIImageSystemName {
+            return image
+        }
+
         assert(false, "Does not supported this string format. \(self)")
         return nil
+    }
+
+    public var asUIImageSystemName:UIImage? {
+        return UIImage(systemName: self)
     }
 
     public var asUIImageNamed:UIImage? {

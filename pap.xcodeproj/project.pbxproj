@@ -1015,12 +1015,9 @@
 		A00FDD54218235EE005EAD1B /* AppStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A00FDC37218235EE005EAD1B /* AppStoryboard.storyboard */; };
 		A00FDD56218235EE005EAD1B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A00FDC39218235EE005EAD1B /* GoogleService-Info.plist */; };
 		A00FDE31218235EF005EAD1B /* SApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00FDD35218235EE005EAD1B /* SApp.swift */; };
-		A00FDE32218235EF005EAD1B /* Siri.SApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A00FDD37218235EE005EAD1B /* Siri.SApp.Assets.xcassets */; };
 		A00FDE33218235EF005EAD1B /* Siri.SApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00FDD38218235EE005EAD1B /* Siri.SApp.swift */; };
 		A00FDE34218235EF005EAD1B /* BApp.Macro.AutoSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00FDD3A218235EE005EAD1B /* BApp.Macro.AutoSelection.swift */; };
 		A00FDE35218235EF005EAD1B /* Finder.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00FDD3C218235EE005EAD1B /* Finder.BApp.swift */; };
-		A00FDE36218235EF005EAD1B /* Finder.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A00FDD3D218235EE005EAD1B /* Finder.BApp.Assets.xcassets */; };
-		A00FDE37218235EF005EAD1B /* MMCMemoCam.BApp.Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A00FDD3F218235EE005EAD1B /* MMCMemoCam.BApp.Assets.xcassets */; };
 		A00FDE38218235EF005EAD1B /* MMCMemoCam.BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00FDD40218235EE005EAD1B /* MMCMemoCam.BApp.swift */; };
 		A00FDE3A218235EF005EAD1B /* BApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00FDD42218235EE005EAD1B /* BApp.swift */; };
 		A00FDE3E218235EF005EAD1B /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00FDD46218235EE005EAD1B /* R.generated.swift */; };
@@ -1696,12 +1693,9 @@
 		A00FDC39218235EE005EAD1B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A00FDC40218235EE005EAD1B /* mmc.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = mmc.entitlements; sourceTree = "<group>"; };
 		A00FDD35218235EE005EAD1B /* SApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SApp.swift; sourceTree = "<group>"; };
-		A00FDD37218235EE005EAD1B /* Siri.SApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Siri.SApp.Assets.xcassets; sourceTree = "<group>"; };
 		A00FDD38218235EE005EAD1B /* Siri.SApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Siri.SApp.swift; sourceTree = "<group>"; };
 		A00FDD3A218235EE005EAD1B /* BApp.Macro.AutoSelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BApp.Macro.AutoSelection.swift; sourceTree = "<group>"; };
 		A00FDD3C218235EE005EAD1B /* Finder.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Finder.BApp.swift; sourceTree = "<group>"; };
-		A00FDD3D218235EE005EAD1B /* Finder.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Finder.BApp.Assets.xcassets; sourceTree = "<group>"; };
-		A00FDD3F218235EE005EAD1B /* MMCMemoCam.BApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MMCMemoCam.BApp.Assets.xcassets; sourceTree = "<group>"; };
 		A00FDD40218235EE005EAD1B /* MMCMemoCam.BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMCMemoCam.BApp.swift; sourceTree = "<group>"; };
 		A00FDD42218235EE005EAD1B /* BApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BApp.swift; sourceTree = "<group>"; };
 		A00FDD46218235EE005EAD1B /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
@@ -2929,7 +2923,6 @@
 		A00FDD36218235EE005EAD1B /* Siri */ = {
 			isa = PBXGroup;
 			children = (
-				A00FDD37218235EE005EAD1B /* Siri.SApp.Assets.xcassets */,
 				A00FDD38218235EE005EAD1B /* Siri.SApp.swift */,
 			);
 			path = Siri;
@@ -2950,7 +2943,6 @@
 			isa = PBXGroup;
 			children = (
 				A00FDD3C218235EE005EAD1B /* Finder.BApp.swift */,
-				A00FDD3D218235EE005EAD1B /* Finder.BApp.Assets.xcassets */,
 			);
 			path = Finder;
 			sourceTree = "<group>";
@@ -2958,7 +2950,6 @@
 		A00FDD3E218235EE005EAD1B /* MMCMemoCam */ = {
 			isa = PBXGroup;
 			children = (
-				A00FDD3F218235EE005EAD1B /* MMCMemoCam.BApp.Assets.xcassets */,
 				A00FDD40218235EE005EAD1B /* MMCMemoCam.BApp.swift */,
 			);
 			path = MMCMemoCam;
@@ -3605,13 +3596,10 @@
 				A00FDD56218235EE005EAD1B /* GoogleService-Info.plist in Resources */,
 				A00FDD52218235EE005EAD1B /* Intents.strings in Resources */,
 				A00FDD4E218235EE005EAD1B /* Localizable.strings in Resources */,
-				A00FDE37218235EF005EAD1B /* MMCMemoCam.BApp.Assets.xcassets in Resources */,
-				A00FDE36218235EF005EAD1B /* Finder.BApp.Assets.xcassets in Resources */,
 				A00FDD51218235EE005EAD1B /* Launch Screen.storyboard in Resources */,
 				A00FDD4F218235EE005EAD1B /* Intents.strings.deleted in Resources */,
 				A00FDD54218235EE005EAD1B /* AppStoryboard.storyboard in Resources */,
 				A00FDD50218235EE005EAD1B /* Assets.xcassets in Resources */,
-				A00FDE32218235EF005EAD1B /* Siri.SApp.Assets.xcassets in Resources */,
 				4F71D751B164B1C77EB75641 /* App.Resources.xcassets in Resources */,
 				4F71D4E4D25FB47C4CD87D31 /* AppUICollectionViewCell.xib in Resources */,
 				4F71D8522F757F80DA18E033 /* App.UICamera.xcassets in Resources */,
@@ -5683,7 +5671,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
@@ -5739,7 +5727,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
@@ -5763,7 +5751,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = DAGHHLSPPQ;
 				INFOPLIST_FILE = "$(SRCROOT)/$(TARGET_NAME)/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.stells.batch;
 				PRODUCT_NAME = "${TARGET_NAME}";
@@ -5790,7 +5778,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = DAGHHLSPPQ;
 				INFOPLIST_FILE = "$(SRCROOT)/$(TARGET_NAME)/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.stells.batch;
 				PRODUCT_NAME = "${TARGET_NAME}";
@@ -5817,7 +5805,7 @@
 				DEVELOPMENT_TEAM = MCAFR355J4;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = mmc/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -5842,7 +5830,7 @@
 				DEVELOPMENT_TEAM = MCAFR355J4;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = mmc/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.stells.mmc;
@@ -5866,7 +5854,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = DAGHHLSPPQ;
 				INFOPLIST_FILE = sap/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.stells.sap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -5892,7 +5880,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = DAGHHLSPPQ;
 				INFOPLIST_FILE = sap/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.stells.sap;
 				PRODUCT_NAME = "$(TARGET_NAME)";

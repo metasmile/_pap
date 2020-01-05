@@ -25,7 +25,7 @@ class SiriApp: NSObject
         , displayName: "Add To Siri"
         , description: nil
         , keywords: nil
-        , iconBundleName: R.image.siriSAppIcon.name
+        , iconBundleName: "mic"
         , themeColor: nil, policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: .default)
         , minOSVersion: OperatingSystemVersion(majorVersion: 12, minorVersion: 0, patchVersion: 0)
     )

@@ -13,8 +13,9 @@ class MMCMemoCamApp: MemoCamApp, SubApp{
             , phase: .release
             , appType: MMCMemoCamApp.self
             , displayName: "Camera".localized.localizedCapitalized, description:nil, keywords:nil
-            , iconBundleName: R.image.mmcMemoCamBAppIcon.name
-            , themeColor: nil, policy: AppPolicy.default
+            , iconBundleName: "camera"
+            , themeColor: nil
+            , policy: AppPolicy.default
             , minOSVersion: nil
     )
 }

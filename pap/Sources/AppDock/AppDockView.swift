@@ -1367,7 +1367,7 @@ internal class AppDockViewCell: CustomCollectionViewCell {
             return appIconImageView.tintColor
         }
         set {
-            appIconImageView.tintColor = UIColor.clear
+            appIconImageView.tintColor = newValue
         }
     }
 
@@ -1429,8 +1429,9 @@ internal class AppDockViewCell: CustomCollectionViewCell {
 //                appIconView.cornerRadius = 0
 //            }
 //        }
-        iconImage = app?.info.iconBundleName?.asUIImage
+        iconImage = app?.info.iconBundleName?.asUIImage?.withRenderingMode(.alwaysTemplate)
         appIconView.cornerRadius = 0
+        appIconImageView.contentMode = .scaleAspectFit
     }
 
 }
