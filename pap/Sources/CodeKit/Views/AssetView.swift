@@ -428,11 +428,11 @@ extension AssetView {
     }
     
     fileprivate func loadImageData(for asset: PHAsset, completion: @escaping (Data?) -> Void) {
-        imageRequestID = AssetView.imageManager.requestImageData(for: asset, options: imageRequestOptions, resultHandler: { [weak self] (data, uti, orientation, info) in
+        AssetView.imageManager.requestImageDataAndOrientation(for: asset, options: imageRequestOptions) { [weak self] (data, uti, orientation, info) in
             guard (info?[PHImageResultIsDegradedKey] as? Bool) != true else { return }
             self?.imageDataDidLoad(data: data)
             completion(data)
-        })
+        }
     }
 }
 

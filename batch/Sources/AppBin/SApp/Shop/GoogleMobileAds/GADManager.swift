@@ -119,8 +119,9 @@ public final class GADManager: NSObject {
     private func getGADRequest() -> GADRequest{
         let request = GADRequest()
 #if DEBUG
+
         if self.testDevices.count > 0{
-            request.testDevices = self.testDevices
+            GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = self.testDevices
         }
 #endif
         return request
