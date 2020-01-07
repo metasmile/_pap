@@ -62,7 +62,7 @@ public class HashtagenApp: NSObject, PropertyWatchable, BApp
             , displayName: "HashTag".localized
             , description: "Finding and collecting hashtags from your photos you selected.".localized
             , keywords: ["#", "Instagram", "Tag List", "Tagging", "Hashtag", "Social Network", "Twitter", "Facebook", "Digial Marketing", "Keyword"]
-            , iconBundleName: R.image.hashtagenBAppIcon.name
+            , icon: AppIcon(source: R.image.hashtagenBAppIcon.name, style: .original)
             , themeColor: UIColor(rgb: 0xFF76C1)
             , policy: AppPolicy.default
             , minOSVersion: nil

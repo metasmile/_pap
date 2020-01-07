@@ -31,7 +31,7 @@ public class PDFMakerApp: BApp, FinalizableApp, PhotoPickerViewControllerAppeara
             , displayName: "PDF Maker"
             , description:"PDFMaker makes PDF document from multiple images with various page options.".localized
             , keywords:["PDF","PDF Builder","Documents","PDF Editor","Margin","Layout","Pages"]
-            , iconBundleName: R.image.pdfMakerBAppIcon.name
+            , icon: AppIcon(source: R.image.pdfMakerBAppIcon.name, style: .original)
             , themeColor: .red, policy: AppPolicy.default
             , minOSVersion: nil
     )
@@ -218,5 +218,5 @@ private class _PDFMakerAppTask: AppTaskPrototype, AppTaskable {
 
 import Intents
 
-extension PDFMakerApp:UIApplicationDelegateLaunchableApp{ 
+extension PDFMakerApp:UIApplicationDelegateLaunchableApp{
 }

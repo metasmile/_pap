@@ -414,14 +414,14 @@ extension AppCharge{
                     shortTitle: "Permanent Single App License",
                     description: nil,
                     unit: nil,
-                    iconImage: app.info.iconBundleName
+                    iconImage: app.info.icon?.source.asUIImage
             )
             , ChargeType.none: AppRewardDescription(
                     title: "Free Use And All New Updates".localized,
                     shortTitle: "Permanent Single App License",
                     description: nil,
                     unit: nil,
-                    iconImage: app.info.iconBundleName
+                    iconImage: app.info.icon?.source.asUIImage
             )
         ][chargeType]
 

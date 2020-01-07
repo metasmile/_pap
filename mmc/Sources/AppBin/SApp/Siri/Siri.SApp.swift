@@ -25,13 +25,13 @@ class SiriApp: NSObject
         , displayName: "Add To Siri"
         , description: nil
         , keywords: nil
-        , iconBundleName: R.image.siriSAppIcon.name
+        , icon: AppIcon(source: "mic", style: .themeColor)
         , themeColor: nil, policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: .default)
         , minOSVersion: OperatingSystemVersion(majorVersion: 12, minorVersion: 0, patchVersion: 0)
     )
     
     public required override init() {
-        
+    
     }
     
     public private(set) static var fixedContentLayout: Bool = true
@@ -116,7 +116,7 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
     }
     
     func didSetContentView(_ view:UIView, dock:AppDock) {
-        
+    
     }
 
     private lazy var appsWithIntent = AppCenter.default.apps(by: .default)
@@ -188,7 +188,7 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
                     let groupDescriber = UITableViewCellDescriber()
                     groupDescriber.itemIdentifier = intentGroup.hashValue
                     groupDescriber.label = intentGroup.app?.info.displayName ?? "Unknown App"
-                    groupDescriber.iconImage = intentGroup.app?.info.iconBundleName
+                    groupDescriber.iconImage = intentGroup.app?.info.icon?.source
 
                     group = CellDescriberGroup(label: intentGroup.label, detailedLabel: intentGroup.detailedLabel, groupHeaderCellDescriber: groupDescriber, itemCellDescribers: tempIntentCellDescribers)
 

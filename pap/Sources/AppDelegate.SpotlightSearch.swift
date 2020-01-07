@@ -51,7 +51,7 @@ extension CSSearchable{
         csItemAttr.title = app.info.displayName
         csItemAttr.contentDescription = app.info.description
         csItemAttr.keywords = app.info.keywords
-        if let image = app.info.iconBundleName?.asUIImage{
+        if let image = app.info.icon?.source.asUIImage{
             autoreleasepool {
 //                var thumbnailImage = image
 //                if let rImage = image.rounded(radius: image.size.height/2)*/{

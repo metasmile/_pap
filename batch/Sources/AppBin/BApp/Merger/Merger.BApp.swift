@@ -59,7 +59,7 @@ class MergerApp: NSObject, BApp, FinalizableApp, PHAssetFinalizableApp, AppDockA
         , displayName: "Movie Maker".localized.localizedCapitalized
         , description: "Combine videos, live photos and photos."
         , keywords: ["movie", "merge", "combine", "slideshow", "montage"]
-        , iconBundleName: nil
+        , icon: nil
         , themeColor: UIColor(rgb: 0xFFE259)//https://uigradients.com/#Mango
         , policy: AppPolicy.default
         , minOSVersion: nil

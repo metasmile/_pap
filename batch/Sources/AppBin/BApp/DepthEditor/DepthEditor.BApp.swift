@@ -77,7 +77,7 @@ class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _Confi
             , displayName: "Depth Editor".localized.localizedCapitalized
             , description: "Enables you to adjust the intensity of background blur after capturing a portrait.".localized
             , keywords: ["depth", "focus", "blur", "portrait", "aperture", "focal length"]
-            , iconBundleName: R.image.depthEditorBAppIcon.name
+            , icon: AppIcon(source: R.image.depthEditorBAppIcon.name, style: .original)
             , themeColor: UIColor(rgb: 0xFFAC9D)
             , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
             , minOSVersion: nil
