@@ -373,7 +373,11 @@ public struct ContactsUtil {
         if UIApplication.shared.canOpenURL(NSURL(string: "tel://")! as URL) {
             // Check if iOS Device supports phone calls
             // User will get an alert error when they will try to make a phone call in airplane mode
-            if let mnc: String = CTTelephonyNetworkInfo().subscriberCellularProvider?.mobileNetworkCode, !mnc.isEmpty {
+
+            let networkStatus = CTTelephonyNetworkInfo()
+            if let info = networkStatus.serviceSubscriberCellularProviders,
+               let carrier = info["serviceSubscriberCellularProvider"],
+               let mnc = carrier.mobileNetworkCode, !mnc.isEmpty {
                 // iOS Device is capable for making calls
                 return true
             }
