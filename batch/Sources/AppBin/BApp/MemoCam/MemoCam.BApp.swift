@@ -861,7 +861,7 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
     }
     
     private func reloadDetectedResult(with image: UIImage) {
-        let loadingView = UIActivityIndicatorView(style: .gray)
+        let loadingView = UIActivityIndicatorView(style: .medium)
         loadingView.startAnimating()
         
         toolBar.setItems([
@@ -1052,7 +1052,7 @@ fileprivate class MemoCamAppDockContent: NSObject, PropertyWatchable, AppDockCon
 //            actionButtonDidTap()
             }
             else {
-                let loadingView = UIActivityIndicatorView(style: .gray)
+                let loadingView = UIActivityIndicatorView(style: .medium)
                 loadingView.startAnimating()
 
                 self.toolBar.setItems([

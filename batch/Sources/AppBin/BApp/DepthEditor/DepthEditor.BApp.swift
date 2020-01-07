@@ -92,7 +92,7 @@ class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _Confi
                     self.config?.filter = filterItem
                 }
                 else {
-                    var defaults = type(of: self).defaults as! DepthEditorAppDefaults
+                    let defaults = type(of: self).defaults as! DepthEditorAppDefaults
                     let filterItem = controllerContent.getFilterItem(by: defaults.depthModeName)
                     (filterItem?.ciFilter as? CIDepthMaskFilter)?.depthLevel = CGFloat(defaults.depthLevel)
                     self.config?.filter = filterItem
@@ -107,7 +107,7 @@ class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _Confi
                     self.config?.filter = filterItem
                 }
                 else {
-                    var defaults = type(of: self).defaults as! DepthEditorAppDefaults
+                    let defaults = type(of: self).defaults as! DepthEditorAppDefaults
                     let filterItem = controllerContent.getFilterItem(by: defaults.depthModeName)
                     (filterItem?.ciFilter as? CIDepthMaskFilter)?.depthLevel = CGFloat(defaults.depthLevel)
 
