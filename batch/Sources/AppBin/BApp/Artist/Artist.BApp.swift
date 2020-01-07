@@ -72,7 +72,7 @@ PhotoEditViewControllerDelegatableApp {
         , displayName: "Artist".localized.localizedCapitalized
         , description: "Be an artist. Artist let you dramatically turn your all photos or videos into famous styled paintings. This batch processing tool has no limit to the number of photos to convert.".localized
         , keywords: ["Artist", "Artwork", "Art", "Painting", "Machine Learning", "Art Creation", MLArtStyle.Mosaic.name, MLArtStyle.Muse.name, MLArtStyle.Udanie.name, MLArtStyle.Candy.name, MLArtStyle.Feathers.name, MLArtStyle.Scream.name]
-        , iconBundleName: R.image.artistBAppIcon.name
+        , icon: AppIcon(source: R.image.artistBAppIcon.name, style: .original)
         , themeColor: nil
         , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
         , minOSVersion: nil

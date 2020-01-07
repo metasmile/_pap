@@ -49,7 +49,7 @@ public protocol AppInfoSchemeValues {
     var version:String {get}
     var phase: AppProductPhase {get}
     var displayName:String {get}
-    var iconBundleName:String? {get}
+    var icon:AppIcon? {get}
     var policy:AppPolicy {get}
 }
 
@@ -97,7 +97,7 @@ public struct AppInfo: Hashable, AppInfoSchemeKey, AppInfoSchemeValues, AppInfoA
     public let displayName:String
     public var description: String?
     public var keywords:[String]?
-    public var iconBundleName:String?
+    public var icon: AppIcon?
     public let themeColor:UIColor?
     public let policy:AppPolicy
     public let minOSVersion:OperatingSystemVersion?
@@ -109,6 +109,15 @@ public struct AppInfo: Hashable, AppInfoSchemeKey, AppInfoSchemeValues, AppInfoA
     public static func ==(lhs: AppInfo, rhs: AppInfo) -> Bool {
         return lhs.identifier == rhs.identifier
     }
+}
+
+public struct AppIcon {
+    enum Style {
+        case themeColor
+        case original
+    }
+    let source: ImageSourceable
+    let style: Style
 }
 
 public enum AppProductPhase: UInt {

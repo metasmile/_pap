@@ -60,7 +60,7 @@ extension ShortcutItemAppDelegate {
         
         //TODO:
         // Icons should be square, single color, and 35x35 points, as shown in these template files and as described in Template Images in UIKit User Interface Catalog and in iOS Human Interface Guidelines.
-//        let icon = UIApplicationShortcutIcon(templateImageName: app.info.iconBundleName ?? "AppIcon")
+//        let icon = UIApplicationShortcutIcon(templateImageName: app.info.icon?.source ?? "AppIcon")
         
         let item = UIApplicationShortcutItem(type: UIApplicationShortcutItem.prefix + app.info.identifier, localizedTitle: app.info.displayName, localizedSubtitle: app.info.description, icon: nil, userInfo: nil)
         

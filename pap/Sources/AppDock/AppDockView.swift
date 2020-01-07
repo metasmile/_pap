@@ -1367,7 +1367,7 @@ internal class AppDockViewCell: CustomCollectionViewCell {
             return appIconImageView.tintColor
         }
         set {
-            appIconImageView.tintColor = UIColor.clear
+            appIconImageView.tintColor = newValue
         }
     }
 
@@ -1419,18 +1419,14 @@ internal class AppDockViewCell: CustomCollectionViewCell {
     }
 
     func setIconImage(){
-
-//        if let iconName = app?.info.iconBundleName{
-//            if isSelected{
-//                iconImage = iconName.asUIImage
-//                appIconView.cornerRadius = appIconView.height / 2
-//            }else{
-//                iconImage = app?.info.iconBundleName?.asUIImage ?? iconName.asUIImage
-//                appIconView.cornerRadius = 0
-//            }
-//        }
-        iconImage = app?.info.iconBundleName?.asUIImage
+        let iconImage = app?.info.icon?.source.asUIImage
+        if app?.info.icon?.style == .themeColor {
+            self.iconImage = iconImage?.withRenderingMode(.alwaysTemplate)
+        }  else {
+            self.iconImage = iconImage
+        }
         appIconView.cornerRadius = 0
+        appIconImageView.contentMode = .scaleAspectFit
     }
 
 }
