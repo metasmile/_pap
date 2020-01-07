@@ -30,7 +30,7 @@ class CameraApp: NSObject, PropertyWatchable, SApp, LaunchableApp, AppDockApp, P
         , displayName: "Camera".localized.localizedCapitalized
         , description: "Robust Standard Built-In Camera for Capturing Live Photos."
         , keywords:["Camera", "Capture","Take a photo", "Video", "Record", "Raw"]
-        , icon: AppIcon(source: R.image.cameraSAppIcon.name, style: .themeColor)
+        , icon: AppIcon(source: R.image.cameraSAppIcon.name, style: .original)
             , themeColor: UIColor(red:0.99, green:0.34, blue:0.12, alpha:1)
                         , policy: AppPolicy.default
         , minOSVersion: nil

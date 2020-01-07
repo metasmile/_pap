@@ -86,7 +86,7 @@ PhotoEditViewControllerDelegatableApp {
             , displayName: "Framer".localized.localizedCapitalized
             , description: "Resize and fill to fit your photos by the various sizes.".localized
             , keywords: ["Resize", "Instasize", "Instafit", "No Crop", "Fit", "Scale", "Size","Transform","Instagram","Insta"]
-        , icon: AppIcon(source: R.image.resizerBAppIcon.name, style: .themeColor)
+        , icon: AppIcon(source: R.image.resizerBAppIcon.name, style: .original)
         , themeColor: UIColor(rgba: 0xFFE567FF)
         , policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: AppTaskPolicy.default)
         , minOSVersion: nil

@@ -35,7 +35,7 @@ public class ShopApp: NSObject
             , displayName: "Settings".localized
             , description: nil
             , keywords: nil
-            , icon: AppIcon(source: R.image.shopSAppIcon.name, style: .themeColor)
+            , icon: AppIcon(source: R.image.shopSAppIcon.name, style: .original)
             , themeColor: UIColor.white, policy: AppPolicy(lifeCycle: AppLifecyclePolicy(instance: .availability), task: .default)
             , minOSVersion: nil
     )

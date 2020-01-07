@@ -1419,7 +1419,12 @@ internal class AppDockViewCell: CustomCollectionViewCell {
     }
 
     func setIconImage(){
-        iconImage = app?.info.icon?.source.asUIImage?.withRenderingMode(.alwaysTemplate)
+        let iconImage = app?.info.icon?.source.asUIImage
+        if app?.info.icon?.style == .themeColor {
+            self.iconImage = iconImage?.withRenderingMode(.alwaysTemplate)
+        }  else {
+            self.iconImage = iconImage
+        }
         appIconView.cornerRadius = 0
         appIconImageView.contentMode = .scaleAspectFit
     }
