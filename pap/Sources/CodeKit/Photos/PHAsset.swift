@@ -90,7 +90,7 @@ extension PHAsset {
                 defaultImageRequestOptions.deliveryMode = .opportunistic
                 defaultImageRequestOptions.resizeMode = .exact
                 
-                PHImageManager.default().requestImageData(for: self, options: defaultImageRequestOptions) { data, s, orientation, dictionary in
+                PHImageManager.default().requestImageDataAndOrientation(for: self, options: defaultImageRequestOptions) { data, s, orientation, dictionary in
                     item = data?.writeToLocalFile()
                     async.end()
                 }

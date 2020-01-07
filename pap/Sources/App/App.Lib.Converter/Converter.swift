@@ -360,7 +360,7 @@ extension Converter{
         options.isSynchronous = false
 
         async.begin()
-        PHImageManager.default().requestImageData(for: asset, options: options) { data, uti, orientation, info in
+        PHImageManager.default().requestImageDataAndOrientation(for: asset, options: options) { data, uti, orientation, info in
             guard (info?[PHImageResultIsDegradedKey] as? Bool) != true else { return }
             if let data = data, let urls = data.extractAnimatedImageURLsAsGIF(){
                 resultUrls = urls

@@ -65,7 +65,7 @@ class MovConverter_Gif: OptionableConverterBase<MovConverterOption>, MovConverte
         var urls:[(URL, Double)]?
 
         async.begin()
-        PHImageManager.default().requestImageData(for: source.asset, options: nil) { data, s, orientation, dictionary in
+        PHImageManager.default().requestImageDataAndOrientation(for: source.asset, options: nil) { data, s, orientation, dictionary in
             urls = data?.extractAnimatedImageURLsAsGIF()
             async.end()
         }
@@ -106,7 +106,7 @@ class MovConverter_Burst: OptionableConverterBase<MovConverterOption>, MovConver
         }
         else {
             return nil
-        }   
+        }
     }
 
     static func canPerformWith(asset: PHAsset) -> Bool {
