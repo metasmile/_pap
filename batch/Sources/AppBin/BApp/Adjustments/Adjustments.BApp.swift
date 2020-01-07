@@ -166,7 +166,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
             if let filter = controllerContent?.filter {
                 self.config?.filter = CIFilterItem(filter)
             }
-            else if var defaults = type(of: self).defaults as? AdjustmentsAppDefaults {
+            else if let defaults = type(of: self).defaults as? AdjustmentsAppDefaults {
                 let filter = controllerContent?.preferredFilter(with: defaults.adjustments)
 
                 let filterItem = CIFilterItem(filter)
@@ -180,7 +180,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
             if let filter = controllerContentInPhotoEditor?.filter {
                 self.config?.filter = CIFilterItem(filter)
             }
-            else if var defaults = type(of: self).defaults as? AdjustmentsAppDefaults {
+            else if let defaults = type(of: self).defaults as? AdjustmentsAppDefaults {
                 let filter = controllerContent?.preferredFilter(with: defaults.adjustments)
 
                 let filterItem = CIFilterItem(filter)

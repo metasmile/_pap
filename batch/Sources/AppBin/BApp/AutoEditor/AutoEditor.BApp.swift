@@ -68,7 +68,7 @@ public class AutoEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, 
                 self.config?.filter = CIFilterItem(filter)
 
             }else{
-                var defaults = type(of: self).defaults as! AutoEditorAppDefaults
+                let defaults = type(of: self).defaults as! AutoEditorAppDefaults
                 controllerContent?.options = defaults.autoAdjustmentOptions
 
                 let filter = CIAutoAdjustmentFilter(options: defaults.autoAdjustmentOptions)
@@ -85,7 +85,7 @@ public class AutoEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, 
                 self.config?.filter = CIFilterItem(filter)
 
             } else{
-                var defaults = type(of: self).defaults as! AutoEditorAppDefaults
+                let defaults = type(of: self).defaults as! AutoEditorAppDefaults
                 controllerContentInPhotoEditor?.options = defaults.autoAdjustmentOptions
 
                 let filter = CIAutoAdjustmentFilter(options: defaults.autoAdjustmentOptions)
