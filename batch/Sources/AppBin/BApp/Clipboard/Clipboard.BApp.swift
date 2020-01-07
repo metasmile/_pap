@@ -56,7 +56,7 @@ class ClipboardApp: NSObject, BApp, PropertyWatchable, AppDockApp, PhotoPickerVi
         , displayName: "Clipboard".localized.localizedCapitalized
         , description: "Paste images from your clipboards".localized
         , keywords: ["Clipboard","Pasteboard","Copy","Paste","Cut"]
-        , iconBundleName: R.image.clipboardBAppIcon.name
+        , icon: AppIcon(source: R.image.clipboardBAppIcon.name, style: .themeColor)
         , themeColor: UIColor(red: 0.67, green: 0.73, blue: 0.67, alpha: 1)
         , policy: AppPolicy.default
         , minOSVersion: nil
@@ -336,7 +336,7 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
 //        if let localPasteboard = self.localPasteboard, localPasteboard.strings != UIPasteboard.general.strings {
 //            groups.append(cellDescriberGroupFor(pasteboard: localPasteboard, title: Bundle.main.displayName ?? "", footerText: "Restore from previous clipboard".localized))
 //        }
-//        
+//
 //        self.localPasteboard?.items = UIPasteboard.general.items
         
         return groups
@@ -359,9 +359,9 @@ fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockC
                 
                 DispatchQueue.mainAsyncIfNot {
                     UIApplication.openSafari(with: url, didPresent: {
-                        
+                    
                     }, didLoad:{ loaded in
-                        
+                    
                     }, didDismiss: {
                         async.end()
                         completion?()

@@ -1419,17 +1419,7 @@ internal class AppDockViewCell: CustomCollectionViewCell {
     }
 
     func setIconImage(){
-
-//        if let iconName = app?.info.iconBundleName{
-//            if isSelected{
-//                iconImage = iconName.asUIImage
-//                appIconView.cornerRadius = appIconView.height / 2
-//            }else{
-//                iconImage = app?.info.iconBundleName?.asUIImage ?? iconName.asUIImage
-//                appIconView.cornerRadius = 0
-//            }
-//        }
-        iconImage = app?.info.iconBundleName?.asUIImage?.withRenderingMode(.alwaysTemplate)
+        iconImage = app?.info.icon?.source.asUIImage?.withRenderingMode(.alwaysTemplate)
         appIconView.cornerRadius = 0
         appIconImageView.contentMode = .scaleAspectFit
     }

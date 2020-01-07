@@ -43,7 +43,7 @@ public class FinderApp: NSObject, PropertyWatchable, BApp
             , displayName: "Albums".localized.localizedCapitalized
             , description: nil
             , keywords: ["Date", "Address", "Maps", "Location","URL","Flight","E-Mail", "Call", "Phone Number", "Contacts","Text","Detection","Information", "Search","Find","Recognization"]
-            , iconBundleName: "rectangle.stack"
+            , icon: AppIcon(source: "rectangle.stack", style: .themeColor)
             , themeColor: nil
             , policy: AppPolicy.default
             , minOSVersion: nil

@@ -239,7 +239,7 @@ extension String: ImageSourceable, BundleImageSourceable, DataSourceable, URLSou
     }
 
     public var asUIImageSystemName:UIImage? {
-        return UIImage(systemName: self)
+        UIImage(systemName: self, withConfiguration: UIImage.SymbolConfiguration(scale: .large)) //Options?
     }
 
     public var asUIImageNamed:UIImage? {

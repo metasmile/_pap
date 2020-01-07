@@ -56,7 +56,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
         , displayName: "Curve Tool".localized.localizedCapitalized
         , description: "Curve Tool".localized
         , keywords: ["Curve", "Color", "RGB"]
-        , iconBundleName: R.image.curveEditorBAppIcon.name
+        , icon: AppIcon(source: R.image.curveEditorBAppIcon.name, style: .themeColor)
         , themeColor: UIColor(rgb: 0x49CE8A)
         , policy: AppPolicy.default
         , minOSVersion: nil
