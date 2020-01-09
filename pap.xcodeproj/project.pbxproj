@@ -3872,11 +3872,11 @@
 			);
 			name = "Run Script";
 			outputPaths = (
-				$SRCROOT/batch/R.generated.swift,
+				$SRCROOT/$TARGET_NAME/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/pre-build.sh\"\n\"${SRCROOT}/batch/pre-build.sh\"\n\"${PODS_ROOT}/R.swift/rswift\" generate \"$SRCROOT/batch/R.generated.swift\"\n\n";
+			shellScript = "\"${SRCROOT}/pre-build.sh\"\n\"${SRCROOT}/${TARGET_NAME}/pre-build.sh\"\n\"${PODS_ROOT}/R.swift/rswift\" generate \"${SRCROOT}/${TARGET_NAME}/R.generated.swift\"\n\n";
 		};
 		A0CBFE3C219ADBA2007A5278 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

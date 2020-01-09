@@ -55,12 +55,7 @@ end
 
 target 'mmc' do
   common_pods
-end
-
-target 'ocra' do
-  pod 'Firebase/AdMob', inhibit_warnings: true
-  common_pods
-end
+end 
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|

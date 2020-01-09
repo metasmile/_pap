@@ -86,6 +86,8 @@
 			</array>
 		</dict>
 		<dict>
+			<key>INEnumDisplayName</key>
+			<string>Cleaner Target</string>
 			<key>INEnumDisplayNameID</key>
 			<string>pKqcgf</string>
 			<key>INEnumName</key>
@@ -222,11 +224,11 @@
 	<key>INIntentDefinitionNamespace</key>
 	<string>8a0mct</string>
 	<key>INIntentDefinitionSystemVersion</key>
-	<string>18E226</string>
+	<string>19C57</string>
 	<key>INIntentDefinitionToolsBuildVersion</key>
-	<string>11M337n</string>
+	<string>11C29</string>
 	<key>INIntentDefinitionToolsVersion</key>
-	<string>11.0</string>
+	<string>11.3</string>
 	<key>INIntents</key>
 	<array>
 		<dict>

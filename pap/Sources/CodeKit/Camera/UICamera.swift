@@ -383,17 +383,18 @@ extension UICamera {
         if self.capturePhotoOutput.isLivePhotoCaptureEnabled {
             photoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.hevc])
             photoSettings.livePhotoMovieFileURL = FileURL.temp(UUID().uuidString, UTI.quickTimeMovie, group: FileURL.fileAndQueuePrivateGroup())
-            photoSettings.isAutoStillImageStabilizationEnabled = capturePhotoOutput.isStillImageStabilizationSupported
+            //TODO: check in detail which mode LivePhoto mode supports.
+            photoSettings.photoQualityPrioritization = capturePhotoOutput.maxPhotoQualityPrioritization
         }
         else if preferredRawPhotoEnabled, let availableRawFormat = self.capturePhotoOutput.availableRawPhotoPixelFormatTypes.first {
             photoSettings = AVCapturePhotoSettings(rawPixelFormatType: availableRawFormat, processedFormat: [AVVideoCodecKey: AVVideoCodecType.hevc])
             
             // RAW capture is incompatible with digital image stabilization.
-            photoSettings.isAutoStillImageStabilizationEnabled = false
+            photoSettings.photoQualityPrioritization = .speed
         }
         else {
             photoSettings = AVCapturePhotoSettings()
-            photoSettings.isAutoStillImageStabilizationEnabled = capturePhotoOutput.isStillImageStabilizationSupported
+            photoSettings.photoQualityPrioritization = capturePhotoOutput.maxPhotoQualityPrioritization
         }
         
         photoSettings.isHighResolutionPhotoEnabled = capturePhotoOutput.isHighResolutionCaptureEnabled

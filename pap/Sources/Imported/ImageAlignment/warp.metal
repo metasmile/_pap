@@ -22,8 +22,8 @@ typedef struct {
     float2 clampRange;
 } WarpMatrix;
 
-vertex SingleInputVertexIO warpHomographic(device packed_float2 *position [[buffer(0)]],
-                                           device packed_float2 *texturecoord [[buffer(1)]],
+vertex SingleInputVertexIO warpHomographic(const device packed_float2 *position [[buffer(0)]],
+                                           const device packed_float2 *texturecoord [[buffer(1)]],
                                            constant WarpMatrix &warpMatrix [[buffer(2)]],
                                            uint vid [[vertex_id]])
 {
@@ -41,8 +41,8 @@ vertex SingleInputVertexIO warpHomographic(device packed_float2 *position [[buff
     return outputVertices;
 }
 
-vertex SingleInputVertexIO warpTranslation(device packed_float2 *position [[buffer(0)]],
-                                           device packed_float2 *texturecoord [[buffer(1)]],
+vertex SingleInputVertexIO warpTranslation(const device packed_float2 *position [[buffer(0)]],
+                                           const device packed_float2 *texturecoord [[buffer(1)]],
                                            constant WarpMatrix &warpMatrix [[buffer(2)]],
                                            uint vid [[vertex_id]])
 {
