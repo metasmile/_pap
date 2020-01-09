@@ -43,7 +43,7 @@ public extension PHImageManager {
                 imageRequestOptions.isSynchronous = false
                 imageRequestOptions.version = .original
 
-                requestImageData(for: asset, options: imageRequestOptions) { (data, uti, imageOrientation, info) in
+                requestImageDataAndOrientation(for: asset, options: imageRequestOptions) { (data, uti, imageOrientation, info) in
                     completion?()
                 }
             }

@@ -258,7 +258,7 @@ extension UIView {
     func centerToParent(options:UIViewCenterToParentOption = [.vertical, .horizontal]) {
         guard let superview = self.superview else { return }
 
-        if UIApplication.shared.statusBarOrientation.isLandscape{
+        if UIApplication.shared.keyWindowInScenes?.windowScene?.interfaceOrientation.isLandscape ?? false {
             self.origin = CGPoint(x: options.contains(.vertical) ? (superview.height / 2) - (self.height / 2) : origin.x, y: options.contains(.horizontal) ? (superview.width / 2) - (self.width / 2) : origin.y)
         }else{
             self.origin = CGPoint(x: options.contains(.horizontal) ? (superview.width / 2) - (self.width / 2) : origin.x, y: options.contains(.vertical) ? (superview.height / 2) - (self.height / 2) : origin.y)
