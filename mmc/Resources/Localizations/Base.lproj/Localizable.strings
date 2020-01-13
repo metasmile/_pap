@@ -110,6 +110,8 @@
 "35mm Format:" = "35mm Format:";
 /* genl10n: Finder.BApp.swift */
 "Actions" = "Actions";
+/* genl10n: mmc.Ads.swift */
+"Activate Ads" = "Activate Ads";
 /* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift(5) */
 "Add New Contact" = "Add New Contact";
 /* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
@@ -124,6 +126,8 @@
 "All processes you have confirmed were finished." = "All processes you have confirmed were finished.";
 /* genl10n: PhotoEditViewController.swift(3) */
 "Altitude" = "Altitude";
+/* genl10n: mmc.Ads.swift */
+"An Error Occurred While Receiving Ads." = "An Error Occurred While Receiving Ads.";
 /* genl10n: PhotoEditViewController.swift */
 "Aperture Value" = "Aperture Value";
 /* genl10n: Finder.BApp.swift */
@@ -150,6 +154,8 @@
 "Could not detect any text." = "Could not detect any text.";
 /* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Could not detect anything." = "Could not detect anything.";
+/* genl10n: mmc.Ads.swift */
+"Could not receive Ads." = "Could not receive Ads.";
 /* genl10n: App.Finalizable.PHAsset.swift */
 "Create and save as new to your photos" = "Create and save as new to your photos";
 /* genl10n: App.Finalizable.UIActivity.PHAsset.swift */
@@ -220,6 +226,8 @@
 "Location" = "Location";
 /* genl10n: PhotoEditViewController.swift(3) */
 "Longitude" = "Longitude";
+/* genl10n: mmc.Ads.swift */
+"Main Tools License" = "Main Tools License";
 /* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Making A Call" = "Making A Call";
 /* genl10n: App.Finalizable.PHAsset.swift */
@@ -252,10 +260,16 @@
 "Open Google Maps" = "Open Google Maps";
 /* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift */
 "Open Web Page" = "Open Web Page";
+/* genl10n: mmc.Ads.swift */
+"Open" = "Open";
 /* genl10n: App.UI.AssetView.swift, App.PreviewProcessable.swift */
 "Original" = "Original";
 /* genl10n: FirebaseMLVision.VisionTextDetectResult.Handlers.swift, Finder.BApp.swift */
 "Phone Number" = "Phone Number";
+/* genl10n: mmc.Ads.swift */
+"Please check and restore your internet connectivity, or deactivate Ads." = "Please check and restore your internet connectivity, or deactivate Ads.";
+/* genl10n: mmc.Ads.swift */
+"Please turn off following option, and reset advertising identifier in Settings. Then try again. " = "Please turn off following option, and reset advertising identifier in Settings. Then try again. ";
 /* genl10n: ActionViewController.swift */
 "Preparing" = "Preparing";
 /* genl10n: Finder.BApp.swift */
@@ -266,6 +280,8 @@
 "Profile Name" = "Profile Name";
 /* genl10n: Charge.Types.StoreKit.swift */
 "Purchase" = "Purchase";
+/* genl10n: mmc.Ads.swift */
+"Remaining Count In This Run" = "Remaining Count In This Run";
 /* genl10n: PhotoEditViewController.swift(2) */
 "Resolution" = "Resolution";
 /* genl10n: Finder.BApp.swift */

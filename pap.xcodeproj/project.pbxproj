@@ -67,6 +67,7 @@
 		4F71D0BABB9A6F8E53F1B970 /* AppTaskOperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DB03EF9DFA1146A969B7 /* AppTaskOperationQueue.swift */; };
 		4F71D0BEC34A585B4C78A65A /* pap.Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDC2FEC46796D85AEB2F /* pap.Log.swift */; };
 		4F71D0C180B854F5232D2E47 /* App.AVCaptureDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DAC8737B577A3A821E0D /* App.AVCaptureDevice.swift */; };
+		4F71D0C326BDC171BE8899A4 /* mmc.Ads.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D76CBCC614316701B77F /* mmc.Ads.swift */; };
 		4F71D0C434B1FB27A03E67EC /* AssetIO.LivePhotoResource.Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D54979AC5F0CCDB89895 /* AssetIO.LivePhotoResource.Image.swift */; };
 		4F71D0CDCBEDB53000E4412C /* AppDelegate.Intents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D134C2C1CA981897CC95 /* AppDelegate.Intents.swift */; };
 		4F71D0CDE130AFBBA5E84EC5 /* AppTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D3FD2173E4A6AC7A1F1A /* AppTask.swift */; };
@@ -1431,6 +1432,7 @@
 		4F71D75E60A08E99D5E6BC0B /* App.Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Asset.swift; sourceTree = "<group>"; };
 		4F71D76295A14A87AD1D229A /* AssetIO.LivePhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetIO.LivePhoto.swift; sourceTree = "<group>"; };
 		4F71D769EEF518D4DAECEDDC /* Camera.SApp.Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Camera.SApp.Assets.xcassets; sourceTree = "<group>"; };
+		4F71D76CBCC614316701B77F /* mmc.Ads.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mmc.Ads.swift; sourceTree = "<group>"; };
 		4F71D76E3E10B66CD9C925DA /* CodeKit.String.NSRegularExpression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.String.NSRegularExpression.swift; sourceTree = "<group>"; };
 		4F71D77BB57852D30405A8B0 /* batch.Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = batch.Strings.swift; sourceTree = "<group>"; };
 		4F71D77E280BF939F23C635D /* Charge.Manager.Macro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Charge.Manager.Macro.swift; sourceTree = "<group>"; };
@@ -2899,6 +2901,7 @@
 				4F71D743DCCA71955A2F5BD4 /* PhotoPickerViewController.Operations.Universal.swift */,
 				4F71DD2C99CADBC03C0E8BD8 /* PhotoEditViewController.AppConfigWatchable.swift */,
 				4F71D2312F16A572298D07D6 /* PhotoPickerViewController.AppConfigWatchable.swift */,
+				4F71D76CBCC614316701B77F /* mmc.Ads.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -3829,7 +3832,7 @@
 			);
 			name = "Run Script";
 			outputPaths = (
-				"$SRCROOT/mmc/R.generated.swift",
+				$SRCROOT/mmc/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3875,7 +3878,7 @@
 			);
 			name = "Run Script";
 			outputPaths = (
-				"$SRCROOT/$TARGET_NAME/R.generated.swift",
+				$SRCROOT/$TARGET_NAME/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -4687,6 +4690,7 @@
 				4F71D8F9D2560688DE2FFF22 /* App.PhotoEditViewControllerInteractable.swift in Sources */,
 				4F71D425D11BFAAAC25E8BCC /* BApp.Macro.UIApplicationDelegateLaunchableApp.swift in Sources */,
 				4F71DEDFD41904B4609B28E5 /* GADManager.swift in Sources */,
+				4F71D0C326BDC171BE8899A4 /* mmc.Ads.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
