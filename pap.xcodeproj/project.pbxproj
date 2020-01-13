@@ -201,7 +201,6 @@
 		4F71D3332E5CB7DCCF562C0F /* App.AppDock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DDF94BADC22F76C4AB41 /* App.AppDock.swift */; };
 		4F71D3362819557F5F4E26D0 /* AssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D36830BF8CE04179FDE1 /* AssetView.swift */; };
 		4F71D337A1FFF210663EAE2E /* batch.ExternalDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D2F70D136A7E7B13C068 /* batch.ExternalDelegate.swift */; };
-		4F71D33BBAD23E5407CA228D /* GADManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA85C98EDB773862B2DF /* GADManager.swift */; };
 		4F71D33C44BAD9C45F5E9761 /* App.Finalizable.UIActivity.PHAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D478D972C952C42ACB61 /* App.Finalizable.UIActivity.PHAsset.swift */; };
 		4F71D343B187B7D005497512 /* App.Launchable.UIApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC91A36166E0E9201973 /* App.Launchable.UIApplicationDelegate.swift */; };
 		4F71D3461F2FD9730883A39A /* Processor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA47A8F4B409A892DEFC /* Processor.swift */; };
@@ -389,6 +388,7 @@
 		4F71D5E949928ACB864E1110 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D56A413B9E585637B114 /* RoundedButton.swift */; };
 		4F71D5F161048964DB4E1A65 /* Cleaner.GarbageDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DE632C5E5EA24ECFF6E6 /* Cleaner.GarbageDetector.swift */; };
 		4F71D5F169F7ECA38AF76809 /* CodeKit.UIApplication.SFSafariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D72325EE1BD2D33BCD05 /* CodeKit.UIApplication.SFSafariViewController.swift */; };
+		4F71D5F5B24555C38272B2F9 /* GADManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF39AAAD341C6A2634CC /* GADManager.swift */; };
 		4F71D6030B1096EA1C07283B /* BApp.Chargeable.PaidApps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D723D428D24D02EF2598 /* BApp.Chargeable.PaidApps.swift */; };
 		4F71D612923F3E7D07291F2F /* UICamera.CaptureProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D173EC2A52C9447FB78B /* UICamera.CaptureProcessor.swift */; };
 		4F71D6151D0BE53C0BC7DED8 /* CodeKit.UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D32CB295BCF19B2023EE /* CodeKit.UITableViewCell.swift */; };
@@ -515,6 +515,7 @@
 		4F71D83E9F0612B16998F5C1 /* CodeKit.FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4AA3738A8CC12349CCB /* CodeKit.FileManager.swift */; };
 		4F71D83EEB5696AFB4188CE5 /* PHAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D39D9419A81C51DF6F97 /* PHAsset.swift */; };
 		4F71D83F72189134B8E553E1 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA5834EC7FBA7BEA2D8F /* GradientView.swift */; };
+		4F71D83F94AEA979CF52D9A0 /* GADManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF39AAAD341C6A2634CC /* GADManager.swift */; };
 		4F71D8402151E3D626C826DD /* App.Launchable.UIApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DC91A36166E0E9201973 /* App.Launchable.UIApplicationDelegate.swift */; };
 		4F71D84A8902F4D86EA4FADB /* App.Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D839E9433881EAEAFD00 /* App.Configurable.swift */; };
 		4F71D84A8E25700DCBDC186A /* AppUICollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F71D30BE6C19672C8D6E8C6 /* AppUICollectionViewCell.xib */; };
@@ -895,6 +896,7 @@
 		4F71DED5A050258F5EE42261 /* Defaults.Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4B49FE907208B69ECCF /* Defaults.Version.swift */; };
 		4F71DED5EFE817A94FD18340 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DFA63EF0D1658753F49C /* Version.swift */; };
 		4F71DEDCB2076589070FBD24 /* PhotoPickerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D7DC54CA496D886EC2FA /* PhotoPickerDetailViewController.swift */; };
+		4F71DEDFD41904B4609B28E5 /* GADManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF39AAAD341C6A2634CC /* GADManager.swift */; };
 		4F71DEE2BE5112B43F77CBD7 /* Converter.Jpeg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DEB92BBCCC0B43EA5840 /* Converter.Jpeg.swift */; };
 		4F71DEE5BF45DF0C228BB2D9 /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D922609B379A7E972C43 /* System.swift */; };
 		4F71DEECCEEA86BA0C2AF378 /* App.Cacheable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D6CE37278581313A8D45 /* App.Cacheable.swift */; };
@@ -1114,7 +1116,6 @@
 		A0CBFE8A219ADBA2007A5278 /* Shop.Payables.Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DF49F0FF6089248DE131 /* Shop.Payables.Store.swift */; };
 		A0CBFE8B219ADBA2007A5278 /* AppCenter.Charge.Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D4B3CE8EE7B285F6028E /* AppCenter.Charge.Appearance.swift */; };
 		A0CBFE8C219ADBA2007A5278 /* Camera.SApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DD6C6B1ACFE87B3EA0CA /* Camera.SApp.swift */; };
-		A0CBFE8D219ADBA2007A5278 /* GADManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71DA85C98EDB773862B2DF /* GADManager.swift */; };
 		A0CBFE8E219ADBA2007A5278 /* Shop.RelativePayable.Policy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D0E0CDFF78F80323BC0A /* Shop.RelativePayable.Policy.swift */; };
 		A0CBFE8F219ADBA2007A5278 /* BApp.Chargeable.DefaultLocalCharge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D1AA3EEE97024F2F4BCB /* BApp.Chargeable.DefaultLocalCharge.swift */; };
 		A0CBFE90219ADBA2007A5278 /* batch.TimerInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F71D1FA39CE8C435998C723 /* batch.TimerInterval.swift */; };
@@ -1494,7 +1495,6 @@
 		4F71DA5834EC7FBA7BEA2D8F /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		4F71DA629324DA202C6C53DE /* App.Recordable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Recordable.swift; sourceTree = "<group>"; };
 		4F71DA68F3D184FF68C23285 /* ChargeableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargeableButton.swift; sourceTree = "<group>"; };
-		4F71DA85C98EDB773862B2DF /* GADManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GADManager.swift; sourceTree = "<group>"; };
 		4F71DA8CB1A1375BFBCDC477 /* gifmaker_preview_frame_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gifmaker_preview_frame_2.png; sourceTree = "<group>"; };
 		4F71DA9A513A9D55187A99FF /* warp.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = warp.metal; sourceTree = "<group>"; };
 		4F71DAA29942B976FB65815E /* CodeKit.UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIButton.swift; sourceTree = "<group>"; };
@@ -1569,6 +1569,7 @@
 		4F71DF01A6BF12A23163FA4C /* Shop.Payment.MailContact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.Payment.MailContact.swift; sourceTree = "<group>"; };
 		4F71DF283855CBC48FCF1FA0 /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		4F71DF3669047FEDD92C4B27 /* CodeKit.UIAlertAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeKit.UIAlertAction.swift; sourceTree = "<group>"; };
+		4F71DF39AAAD341C6A2634CC /* GADManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GADManager.swift; sourceTree = "<group>"; };
 		4F71DF3ACC28BD0E84528C27 /* Sourceable.Vision.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sourceable.Vision.swift; sourceTree = "<group>"; };
 		4F71DF3CAA29CFF0CFE4F837 /* App.Lib.Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.Lib.Tests.swift; sourceTree = "<group>"; };
 		4F71DF49F0FF6089248DE131 /* Shop.Payables.Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.Payables.Store.swift; sourceTree = "<group>"; };
@@ -2014,14 +2015,6 @@
 			path = AutoEditor.BApp.Assets;
 			sourceTree = "<group>";
 		};
-		4F71D15765FA3497835D1B26 /* GoogleMobileAds */ = {
-			isa = PBXGroup;
-			children = (
-				4F71DA85C98EDB773862B2DF /* GADManager.swift */,
-			);
-			path = GoogleMobileAds;
-			sourceTree = "<group>";
-		};
 		4F71D17D65ACBF351C5B81D3 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
@@ -2147,7 +2140,6 @@
 			children = (
 				4F71D4884D683710D4B95189 /* Shop.SApp.swift */,
 				4F71DF49F0FF6089248DE131 /* Shop.Payables.Store.swift */,
-				4F71D15765FA3497835D1B26 /* GoogleMobileAds */,
 				4F71D0E0CDFF78F80323BC0A /* Shop.RelativePayable.Policy.swift */,
 				A096E7E321307942003C8E70 /* Shop.SApp.Assets.xcassets */,
 				4F71DCEF593DF87E9F119E0A /* Payments */,
@@ -2256,6 +2248,14 @@
 				4F71D3F9F3A159709359F245 /* Charge.Types.Trialable.swift */,
 			);
 			path = Charge;
+			sourceTree = "<group>";
+		};
+		4F71D6D19E8A9F7E400E89C6 /* App.Lib.GoogleMobileAds */ = {
+			isa = PBXGroup;
+			children = (
+				4F71DF39AAAD341C6A2634CC /* GADManager.swift */,
+			);
+			path = App.Lib.GoogleMobileAds;
 			sourceTree = "<group>";
 		};
 		4F71D6D3A781A326A2D0B471 /* AppDock */ = {
@@ -2435,6 +2435,7 @@
 				4F71D827C125A1FF2A14DE79 /* App.PhotoPickerViewControllerUniversalOperations.swift */,
 				4F71D053E2A46303D1B27119 /* App.PhotoEditViewControllerProcessable.swift */,
 				4F71D22EE71660EC681FE794 /* App.PhotoEditViewControllerInteractable.swift */,
+				4F71D6D19E8A9F7E400E89C6 /* App.Lib.GoogleMobileAds */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -3759,6 +3760,7 @@
 				"${BUILT_PRODUCTS_DIR}/Protobuf/protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyGif/SwiftyGif.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyStoreKit/SwiftyStoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -3773,6 +3775,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyGif.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyStoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3826,7 +3829,7 @@
 			);
 			name = "Run Script";
 			outputPaths = (
-				$SRCROOT/mmc/R.generated.swift,
+				"$SRCROOT/mmc/R.generated.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3872,7 +3875,7 @@
 			);
 			name = "Run Script";
 			outputPaths = (
-				$SRCROOT/$TARGET_NAME/R.generated.swift,
+				"$SRCROOT/$TARGET_NAME/R.generated.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -4189,7 +4192,6 @@
 				4F71DA22B36DA740EDD15DB1 /* Shop.Payables.Store.swift in Sources */,
 				4F71DFA0E117DDBF5090CA08 /* AppCenter.Charge.Appearance.swift in Sources */,
 				4F71D99E05AE096DDF492BFB /* Camera.SApp.swift in Sources */,
-				4F71D33BBAD23E5407CA228D /* GADManager.swift in Sources */,
 				4F71DC12735D96F79EAAEE0A /* Shop.RelativePayable.Policy.swift in Sources */,
 				4F71DF36390CB1F5CDDC287B /* BApp.Chargeable.DefaultLocalCharge.swift in Sources */,
 				4F71D91F046985261E794AFB /* batch.TimerInterval.swift in Sources */,
@@ -4447,6 +4449,7 @@
 				4F71DF9A9DA674CC676A0289 /* App.PhotoEditViewControllerProcessable.swift in Sources */,
 				4F71D349A9406D231C0833D6 /* App.PhotoEditViewControllerInteractable.swift in Sources */,
 				4F71D5D87FD3507B639D1CB3 /* BApp.Macro.UIApplicationDelegateLaunchableApp.Intents.swift in Sources */,
+				4F71D83F94AEA979CF52D9A0 /* GADManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4683,6 +4686,7 @@
 				4F71DE4CACE336545A728A8D /* App.PhotoEditViewControllerProcessable.swift in Sources */,
 				4F71D8F9D2560688DE2FFF22 /* App.PhotoEditViewControllerInteractable.swift in Sources */,
 				4F71D425D11BFAAAC25E8BCC /* BApp.Macro.UIApplicationDelegateLaunchableApp.swift in Sources */,
+				4F71DEDFD41904B4609B28E5 /* GADManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4739,7 +4743,6 @@
 				A0CBFE8A219ADBA2007A5278 /* Shop.Payables.Store.swift in Sources */,
 				A0CBFE8B219ADBA2007A5278 /* AppCenter.Charge.Appearance.swift in Sources */,
 				A0CBFE8C219ADBA2007A5278 /* Camera.SApp.swift in Sources */,
-				A0CBFE8D219ADBA2007A5278 /* GADManager.swift in Sources */,
 				A0CBFE8E219ADBA2007A5278 /* Shop.RelativePayable.Policy.swift in Sources */,
 				A0CBFE8F219ADBA2007A5278 /* BApp.Chargeable.DefaultLocalCharge.swift in Sources */,
 				A0CBFE90219ADBA2007A5278 /* batch.TimerInterval.swift in Sources */,
@@ -4998,6 +5001,7 @@
 				4F71DA4B904DCC62046882C1 /* App.PhotoEditViewControllerProcessable.swift in Sources */,
 				4F71DF4470553BFB07E9773A /* App.PhotoEditViewControllerInteractable.swift in Sources */,
 				4F71D50CEB91E2EE22E42D44 /* BApp.Macro.UIApplicationDelegateLaunchableApp.Intents.swift in Sources */,
+				4F71D5F5B24555C38272B2F9 /* GADManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

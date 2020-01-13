@@ -158,5 +158,9 @@
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Dark</string>
+	<key>GADApplicationIdentifier</key>
+	<string>ca-app-pub-3029312734389414~1286575409</string>
+	<key>GADIsAdManagerApp</key>
+	<true/>
 </dict>
 </plist>

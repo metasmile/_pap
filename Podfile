@@ -24,9 +24,7 @@ def common_pods
   pod 'PhoneNumberKit', :git => "https://github.com/blwinters/PhoneNumberKit", :branch => "coinninja"
 end
 
-def paps_pods
-  common_pods
-
+def batch_pods
   # com.stells.batch.shop
   # pod 'Eureka'
   # # Garbage Social/Ads Kits - Must Use In ShopApp Only.
@@ -43,19 +41,23 @@ def paps_pods
 end
 
 target 'batch' do
-  paps_pods
+  common_pods
+  batch_pods
   target 'papTests' do
     inherit! :complete
   end
 end
 
 target 'sap' do
-  paps_pods
+  common_pods
+  batch_pods
 end
 
 target 'mmc' do
   common_pods
-end 
+  pod 'Firebase/AdMob', inhibit_warnings: true
+  pod 'SwiftyStoreKit'
+end
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|
