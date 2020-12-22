@@ -29,7 +29,7 @@ extension UIViewController{
     }
 
     public class var root:UIViewController?{
-        return UIApplication.shared.keyWindow?.rootViewController
+        return UIApplication.shared.keyWindowInScenes?.rootViewController
     }
 
     public class var presentable:UIViewController?{

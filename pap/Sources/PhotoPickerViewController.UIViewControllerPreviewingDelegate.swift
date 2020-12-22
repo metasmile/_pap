@@ -9,6 +9,7 @@ import Photos
 
 extension PhotoPickerViewController: UIViewControllerPreviewingDelegate {
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+
         if previewingContext.sourceView == photoCollectionView {
 
             guard let indexPath = photoCollectionView.indexPathForItem(at: location) else { return nil }

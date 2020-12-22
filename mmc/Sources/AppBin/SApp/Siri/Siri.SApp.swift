@@ -104,12 +104,12 @@ fileprivate class SiriSettingsDockContent: NSObject, AppDockContent {
             let frame = frameValue.cgRectValue
             
             self.tableView.contentInset.bottom = frame.height - (UIScreen.main.bounds.height - dock.contentInsets.bottom) - tableHeaderViewHeight
-            self.tableView.scrollIndicatorInsets.bottom = self.tableView.contentInset.bottom
+            self.tableView.verticalScrollIndicatorInsets.bottom = self.tableView.contentInset.bottom
         }
         
         NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: nil) { (notification) in
             self.tableView.contentInset.bottom = 0
-            self.tableView.scrollIndicatorInsets.bottom = self.tableView.contentInset.bottom
+            self.tableView.verticalScrollIndicatorInsets.bottom = self.tableView.contentInset.bottom
         }
         
         reloadData()

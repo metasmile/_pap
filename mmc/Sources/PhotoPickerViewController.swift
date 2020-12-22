@@ -346,12 +346,12 @@ class PhotoPickerViewController: AppDockViewController {
         if animatesUpdatingPhotoCollectionContentInset {
             UIView.animateAsSpring(animations: {
                 self.photoCollectionView.contentInset.bottom = self.appDockInsets.bottom
-                self.photoCollectionView.scrollIndicatorInsets.bottom = self.photoCollectionView.contentInset.bottom
+                self.photoCollectionView.verticalScrollIndicatorInsets.bottom = self.photoCollectionView.contentInset.bottom
             })
         }
         else {
             self.photoCollectionView.contentInset.bottom = self.appDockInsets.bottom
-            self.photoCollectionView.scrollIndicatorInsets.bottom = self.photoCollectionView.contentInset.bottom
+            self.photoCollectionView.verticalScrollIndicatorInsets.bottom = self.photoCollectionView.contentInset.bottom
         }
 
         let interitemSpacing: CGFloat = 1
@@ -923,7 +923,7 @@ extension PhotoPickerViewController: PreviewViewDelegate {
         titleFade = currentDisplayableApp?.titleWillBegin ?? "Starting the Process...".localized
         taskProgress = 0
 
-        let loadingIndicator = UIActivityIndicatorView(style: .gray)
+        let loadingIndicator = UIActivityIndicatorView(style: .medium)
         loadingIndicator.startAnimating()
         navigationItem.setRightBarButtonItems([UIBarButtonItem(customView: loadingIndicator)], animated: true)
 

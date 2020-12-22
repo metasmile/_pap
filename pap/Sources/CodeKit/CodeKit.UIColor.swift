@@ -36,8 +36,8 @@ extension UIColor {
             string.remove(at: string.startIndex)
         }
         
-        var scannedValue: UInt32 = 0
-        Scanner(string: string).scanHexInt32(&scannedValue)
+        var scannedValue: UInt64 = 0
+        Scanner(string: string).scanHexInt64(&scannedValue)
         
         let hex = Int(scannedValue)
         

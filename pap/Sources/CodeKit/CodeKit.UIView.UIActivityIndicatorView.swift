@@ -14,7 +14,7 @@ extension UIView{
 
     func startIndicating(targetSubview:UIView, position:UIViewFrameAlignment = .center){
         if targetSubview.superview?.viewWithTag(loadingIndicatorTag) is UIActivityIndicatorView == false{
-            let loadingIndicator = UIActivityIndicatorView(style: .gray)
+            let loadingIndicator = UIActivityIndicatorView(style: .medium)
             loadingIndicator.hidesWhenStopped = false
             loadingIndicator.tag = loadingIndicatorTag
             loadingIndicator.tintColor = self.tintColor

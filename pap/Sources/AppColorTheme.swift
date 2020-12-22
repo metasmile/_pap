@@ -109,7 +109,7 @@ extension AppColorTheme {
                 if let c = defaultDelegate?.tintColor{
                     return c
                 }
-                return UIApplication.shared.keyWindow?.tintColor ?? UIColor(red: 0, green: 122 / 255.0, blue: 1, alpha: 1)
+                return UIApplication.shared.keyWindowInScenes?.tintColor ?? UIColor(red: 0, green: 122 / 255.0, blue: 1, alpha: 1)
         }
     }
     
@@ -120,13 +120,8 @@ extension AppColorTheme {
         }
     }
     
-    @available(iOS 12.0, *)
     var siriButtonStyle: INUIAddVoiceShortcutButtonStyle {
-        if #available(iOS 13.0, *) {
-            return .automaticOutline
-        } else {
-            return self == .dark ? .black : .white
-        }
+        .automaticOutline
     }
 }
 
@@ -170,7 +165,7 @@ extension AppColorThemeable where Self: UIViewController {
     }
     
     func setColorTheme(_ colorTheme: AppColorTheme, animated: Bool = false) {
-        if let window = UIApplication.shared.keyWindow, animated {
+        if let window = UIApplication.shared.keyWindowInScenes, animated {
             guard themeManager.colorTheme != colorTheme else { return }
             UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: {
                 self.themeManager.colorTheme = colorTheme
@@ -233,7 +228,7 @@ extension UISearchBar{
         tintColor = colorTheme.tintColor
 
         if #available(iOS 13.0, *) {
-            
+        
         } else {
             barStyle = colorTheme.barStyle
             barTintColor = colorTheme.barTintColor
@@ -247,7 +242,7 @@ extension UIScrollView {
         super.tintColorDidChange()
         
         if #available(iOS 13.0, *) {
-            
+        
         } else {
             indicatorStyle = colorTheme == .dark ? .white : .default
         }
@@ -285,7 +280,7 @@ extension UIPickerView{
         tintColor = colorTheme.tintColor
         
         if #available(iOS 13.0, *) {
-            
+        
         } else {
             if colorTheme == .dark{
                 for v in getAllSubviews(){
@@ -306,7 +301,7 @@ extension UITableViewCell {
         accessoryView?.tintColor = colorTheme.tintColor
         
         if #available(iOS 13.0, *) {
-            
+        
         } else {
             if backgroundColor != UIColor.clear{
                 backgroundColor = colorTheme.objectBackgroundColor
@@ -322,7 +317,7 @@ extension UITableViewPickerCell{
         titleLabel.textColor = colorTheme.textColor
 
         if #available(iOS 13.0, *) {
-            
+        
         } else {
             defaultValueLabelTextColor = colorTheme.textColor
             lineSeparatorColor = colorTheme.lineSeparatorColor
@@ -338,7 +333,7 @@ extension UITableViewMultiplePickerCell{
         defaultValueLabelTextColor = colorTheme.textColor
 
         if #available(iOS 13.0, *) {
-            
+        
         } else {
             lineSeparatorColor = colorTheme.lineSeparatorColor
         }
@@ -350,7 +345,7 @@ extension UIActivityIndicatorView{
         super.tintColorDidChange()
 
         if #available(iOS 13.0, *) {
-            
+        
         } else {
             self.style = colorTheme == .dark ? .white : .gray
         }
@@ -362,7 +357,7 @@ extension UIToolbar {
         super.tintColorDidChange()
         
         if #available(iOS 13.0, *) {
-            
+        
         } else {
             barStyle = colorTheme.barStyle
             barTintColor = colorTheme.barTintColor

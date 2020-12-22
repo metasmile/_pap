@@ -13,7 +13,7 @@ extension UIButton {
 
     func startIndicating(){
         if self.superview?.viewWithTag(loadingIndicatorTag) is UIActivityIndicatorView == false{
-            let loadingIndicator = UIActivityIndicatorView(style: .gray)
+            let loadingIndicator = UIActivityIndicatorView(style: .medium)
             loadingIndicator.hidesWhenStopped = false
             loadingIndicator.tag = loadingIndicatorTag
             self.superview?.addSubview(loadingIndicator)

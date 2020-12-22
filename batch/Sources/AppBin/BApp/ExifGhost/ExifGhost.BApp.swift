@@ -63,7 +63,7 @@ public class ExifGhostApp: NSObject, PropertyWatchable,BApp,
 
             var purged = false
             async.begin()
-            PHImageManager.default().requestImageData(for: item.asset, options: nil) { data, s, orientation, dictionary in
+            PHImageManager.default().requestImageDataAndOrientation(for: item.asset, options: nil) { data, s, orientation, dictionary in
                 purged = true == data?.getMetadata()?.isPurgedMetadata(for: ImageMetadata.Collection.DefaultSensitivity)
                 async.end()
             }

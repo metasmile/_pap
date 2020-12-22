@@ -59,7 +59,7 @@ extension AppCenter{
 
     @discardableResult
     private func selectApp(_ app:App.Type, options: AppLaunchOptions?=nil, animation:Bool=false, didOpen:((Bool) -> ())?=nil) -> Bool{
-        guard let rootVc = UIApplication.shared.keyWindow?.rootViewController as? AppDockNavigationController else {
+        guard let rootVc = UIApplication.shared.keyWindowInScenes?.rootViewController as? AppDockNavigationController else {
             return false
         }
 

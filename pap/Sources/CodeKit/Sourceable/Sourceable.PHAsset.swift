@@ -62,7 +62,7 @@ extension PHAsset {
         async.begin()
         
         var result: Data? = nil
-        let imageRequestID = PHImageManager.default().requestImageData(for: self, options: options) { (data, uti, imageOrientation, info) in
+        let imageRequestID = PHImageManager.default().requestImageDataAndOrientation(for: self, options: options) { (data, uti, imageOrientation, info) in
             result = data
             
             async.end()

@@ -70,7 +70,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
             if let filter = controllerContent?.filter {
                 self.config?.filter = CIFilterItem(filter)
             }
-            else if var defaults = type(of: self).defaults as? CurveEditorDefaults {
+            else if let defaults = type(of: self).defaults as? CurveEditorDefaults {
                 let filter = CIColorFilterGroup(filters: defaults.colorFilters)
 
                 let filterItem = CIFilterItem(filter)
@@ -84,7 +84,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
             if let filter = controllerContentInPhotoEditor?.filter {
                 self.config?.filter = CIFilterItem(filter)
             }
-            else if var defaults = type(of: self).defaults as? CurveEditorDefaults {
+            else if let defaults = type(of: self).defaults as? CurveEditorDefaults {
                 let filter = CIColorFilterGroup(filters: defaults.colorFilters)
 
                 let filterItem = CIFilterItem(filter)

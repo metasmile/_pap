@@ -85,7 +85,7 @@ PhotoEditViewControllerDelegatableApp {
                     self.config?.filter = filterItem
                 }
                 else {
-                    var defaults = type(of: self).defaults as! FilterAppDefaults
+                    let defaults = type(of: self).defaults as! FilterAppDefaults
                     let filterItem = controllerContent.getFilterItem(by: defaults.filterName)
                     self.config?.filter = filterItem
                     self.defaultEditStateValue = filterItem
@@ -99,7 +99,7 @@ PhotoEditViewControllerDelegatableApp {
                     self.config?.filter = filterItem
                 }
                 else {
-                    var defaults = type(of: self).defaults as! FilterAppDefaults
+                    let defaults = type(of: self).defaults as! FilterAppDefaults
                     let filterItem = controllerContent.getFilterItem(by: defaults.filterName)
                     self.config?.filter = filterItem
                 }

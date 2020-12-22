@@ -101,7 +101,7 @@ PhotoEditViewControllerDelegatableApp {
                     self.config?.filter = filterItem
                 }
                 else {
-                    var defaults = type(of: self).defaults as! ResizerAppDefaults
+                    let defaults = type(of: self).defaults as! ResizerAppDefaults
                     let filter = controllerContent.getFilter(by: defaults.resizeFilterName)
 
                     let filterItem = CIFrameFilterItem(filter, backgroundColor: UIColor(rgba: defaults.backgroundColorValue), borderWidth: CGFloat(defaults.borderWidth))
@@ -117,7 +117,7 @@ PhotoEditViewControllerDelegatableApp {
                     self.config?.filter = filterItem
                 }
                 else {
-                    var defaults = type(of: self).defaults as! ResizerAppDefaults
+                    let defaults = type(of: self).defaults as! ResizerAppDefaults
                     let filter = controllerContent.getFilter(by: defaults.resizeFilterName)
 
                     self.config?.filter = CIFrameFilterItem(filter, backgroundColor: UIColor(rgba: defaults.backgroundColorValue), borderWidth: CGFloat(defaults.borderWidth))

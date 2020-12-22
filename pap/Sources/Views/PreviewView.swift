@@ -227,7 +227,7 @@ class PreviewView: CustomView, AppDockContentTransition {
     
     private func setPreviewLayout(with height: CGFloat) {
         if UIMenuController.shared.isMenuVisible {
-            UIMenuController.shared.setMenuVisible(false, animated: true)
+            UIMenuController.shared.hideMenu(from: self)
         }
         
         let fromLayout = collectionView.collectionViewLayout as? PreviewCollectionLayout
@@ -495,10 +495,11 @@ extension PreviewView {
         
         self.batchProcessingState = .ready
         self.delegate?.batchPreviewViewWillCancelProgress(self)
-        UIApplication.shared.beginIgnoringInteractionEvents()
-        
+
+        UIApplication.shared.keyWindowInScenes?.isUserInteractionEnabled = false
+
         AppCenter.default.task.cancel(AppTaskCancellationReaction().will {
-            UIApplication.shared.endIgnoringInteractionEvents()
+            UIApplication.shared.keyWindowInScenes?.isUserInteractionEnabled = true
             }.did{
                 self.delegate?.batchPreviewViewDidCancelEdit(self)
         })
@@ -709,10 +710,9 @@ extension PreviewView: UICollectionViewDelegate {
         
         if delegate?.batchPreviewView(self, shouldShowMenuForItemAt: indexPath) == true, let menuTitle = delegate?.batchPreviewView(self, titleForMenuItemAt: indexPath), let cell = collectionView.cellForItem(at: indexPath) {
             becomeFirstResponder()
-            
-            UIMenuController.shared.setTargetRect(convert(cell.frame, from: collectionView), in: self)
+
             UIMenuController.shared.menuItems = [UIMenuItem(title: menuTitle, action: #selector(self.performActionForMenuItem))]
-            UIMenuController.shared.setMenuVisible(true, animated: true)
+            UIMenuController.shared.showMenu(from: self, rect: convert(cell.frame, from: collectionView))
         }
     }
     
