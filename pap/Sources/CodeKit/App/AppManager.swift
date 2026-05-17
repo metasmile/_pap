@@ -341,65 +341,43 @@ private final class AppLifecycleManager {
 
 extension PropertyWatchable where Self: NSObject {
     
-    private func associationKey(for string: String) -> UnsafeRawPointer {
-        let key = UnsafeMutablePointer<UInt8>.allocate(capacity: 1)
-        key.pointee = UInt8(string.hashValue & 0xFF)
-        return UnsafeRawPointer(key)
+    public func watch(_ keyPath: AnyKeyPath,
+                     id: String? = nil,
+                     options: NSKeyValueObservingOptions = [.initial, .new],
+                     changeHandler: @escaping (Any, Any) -> Void) {
     }
     
     public func watch(_ keyPath: AnyKeyPath,
-                             id: String? = nil,
-                             options: NSKeyValueObservingOptions = [.initial, .new],
-                             changeHandler: @escaping (Any, Any) -> Void) {
-        // no-op stub for compilation
+                     id: String? = nil,
+                     options: NSKeyValueObservingOptions = [.initial, .new],
+                     changeHandler: @escaping () -> Void) {
     }
     
     public func watch(_ keyPath: AnyKeyPath,
-                             id: String? = nil,
-                             options: NSKeyValueObservingOptions = [.initial, .new],
-                             changeHandler: @escaping () -> Void) {
-        // no-op stub for compilation
+                     changeHandler: @escaping (Any, Any) -> Void) {
     }
     
-    public func watch<Value>(_ keyPath: KeyPath<Self, Value>,
-                             changeHandler: @escaping (Self, Value) -> Void) {
-        // no-op stub
-    }
-    
-    public func watch<Value>(_ keyPath: KeyPath<Self, Value>,
-                             changeHandler: @escaping () -> Void) {
-        // no-op stub
+    public func watch(_ keyPath: AnyKeyPath,
+                     changeHandler: @escaping () -> Void) {
     }
     
     public func unwatch(_ keyPath: AnyKeyPath) {
-        let key = associationKey(for: "unwatch_\(keyPath._kvcKeyPathString ?? String(describing: keyPath))" )
-        objc_setAssociatedObject(self, key, nil, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
     }
     
     public func unwatch(_ keyPath: AnyKeyPath, forIds: [String]) {
-        for id in forIds {
-            let key = associationKey(for: "unwatch_\(id)" )
-            objc_setAssociatedObject(self, key, nil, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-        }
     }
     
     public func unwatch(forIds: [String]) {
-        for id in forIds {
-            let key = associationKey(for: "unwatch_\(id)" )
-            objc_setAssociatedObject(self, key, nil, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-        }
     }
     
     public func unwatchAllFilePrivate() {
     }
     
-    public func unwatchAllFilePrivate<Value>(_ keyPath: KeyPath<Self, Value>) {
+    public func unwatchAllFilePrivate(_ keyPath: AnyKeyPath) {
     }
 }
 
-
-
-// MARK: - PropertyDefaults (Replacement for PropertyKit)
+// MARK: - PropertyDefaults// MARK: - PropertyDefaults (Replacement for PropertyKit)
 
 @objc public protocol PropertyDefaults: AnyObject {
 }
