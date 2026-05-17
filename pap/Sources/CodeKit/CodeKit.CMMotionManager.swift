@@ -6,7 +6,6 @@
 import Foundation
 import CoreMotion
 import UIKit
-import PropertyKit
 /*
     Usage:
 

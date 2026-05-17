@@ -5,8 +5,6 @@
 
 import Foundation
 import Photos
-import PropertyKit
-import CocoaImageHashing
 import MetalPerformanceShaders
 import MetalKit
 import Vision
@@ -27,7 +25,7 @@ struct PHAssetGCResult:AppTaskResultable {
 
 private typealias PHAssetID = String
 
-public class CleanerApp: NSObject, BApp, PropertyWatchable, LaunchableApp, PHAssetFinalizableApp, PHAssetCacheableApp, AppDockApp, PhotoPickerViewControllerAppearanceDelegatableApp, PhotoPickerCollectionViewDelegatableApp, PreheatableApp {
+public class CleanerApp: NSObject, BApp, LaunchableApp, PHAssetFinalizableApp, PHAssetCacheableApp, AppDockApp, PhotoPickerViewControllerAppearanceDelegatableApp, PhotoPickerCollectionViewDelegatableApp, PreheatableApp {
     public static let taskType: AppTaskable.Type = _CleanerAppTask.self
 
     public static let paramType: AppTaskParamable.Type = AppAsset.self
@@ -86,21 +84,18 @@ public class CleanerApp: NSObject, BApp, PropertyWatchable, LaunchableApp, PHAss
         return true
     }
 
-    @objc dynamic
-    public fileprivate (set) lazy var autoSelect: Bool = false
+    public private(set) lazy var autoSelect: Bool = false
 
     fileprivate static var DefaultEnabledGDTypes:[PHAssetGarbageDetector.Type]{
         return [
-            PHAssetGarbageDetector_Similarity.self
-            , PHAssetGarbageDetector_Flashlight.self
+            PHAssetGarbageDetector_Flashlight.self
             , PHAssetGarbageDetector_VideosSavedbyInstagramApp.self
             , PHAssetGarbageDetector_TooCloseupFace.self
         ]
     }
 
     fileprivate static let SupportingGDTypes:[PHAssetGarbageDetector.Type] = [
-        PHAssetGarbageDetector_Similarity.self
-        , PHAssetGarbageDetector_Screenshots.self
+        PHAssetGarbageDetector_Screenshots.self
         , PHAssetGarbageDetector_Flashlight.self
         , PHAssetGarbageDetector_Lockscreens.self
         , PHAssetGarbageDetector_SavedWithBuiltInCamera.self

@@ -6,7 +6,6 @@
 import Foundation
 import UIKit
 import Photos
-import PropertyKit
 
 final class PhotosManager: NSObject, PropertyWatchable, PHPhotoLibraryChangeObserver {
     static let `default` = PhotosManager()

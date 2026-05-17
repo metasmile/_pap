@@ -278,7 +278,6 @@ private class _AutoEditorAppTask: AppTaskPrototype, AppTaskable {
 /*
 AutoEditorAppDockContent
 */
-import PropertyKit
 private protocol AutoEditorAppDefaults: AppDefaults{
     var autoAdjustmentOptions: [String:Bool] {get set}
 }

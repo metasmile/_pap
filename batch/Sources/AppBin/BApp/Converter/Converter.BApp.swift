@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 import MobileCoreServices
 import Photos
-import PropertyKit
 
 private protocol ConverterAppDefaults: AppDefaults{
     var convertingDirection: ConvertingDirection {get set}

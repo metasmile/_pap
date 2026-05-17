@@ -6,7 +6,6 @@
 import Foundation
 import GoogleMobileAds
 import UIKit
-import PropertyKit
 
 //https://developers.google.com/admob/ios/interstitial?hl=en-GB
 private enum _AdsSystemInfo: String {

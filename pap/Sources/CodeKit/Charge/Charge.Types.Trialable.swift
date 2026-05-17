@@ -4,7 +4,6 @@
 //
 
 import Foundation
-import PropertyKit
 
 protocol TrialablePayable: Payable{
     static var trialTimeLength:TimeInterval {get}

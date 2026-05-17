@@ -8,7 +8,6 @@ import QuartzCore
 import Photos
 import UIKit
 import MobileCoreServices
-import PropertyKit
 
 public class TransformAppConfigValue: NSObject, PropertyWatchable, AppConfigAdoptableValuable {
     @objc dynamic

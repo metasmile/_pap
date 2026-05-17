@@ -5,7 +5,6 @@
 
 import Foundation
 import UIKit
-import PropertyKit
 
 private protocol SNSEngagementPaymentDefaults:PropertyDefaults{
     var latestPaidDate:Date?{set get}

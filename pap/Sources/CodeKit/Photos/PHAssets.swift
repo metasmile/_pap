@@ -5,7 +5,6 @@
 
 import Foundation
 import Photos
-import PropertyKit
 //TODO: later change to instance copying style instead of sync+singleton.
 
 public final class PHAssets: NSObject, PropertyWatchable {

@@ -9,7 +9,6 @@
 
 import UIKit
 import Photos
-import PropertyKit
 import MetalPerformanceShaders
 
 protocol DepthEditorAppDefaults: AppDefaults {

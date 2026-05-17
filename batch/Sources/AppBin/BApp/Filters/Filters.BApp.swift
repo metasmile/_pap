@@ -8,7 +8,6 @@
 
 import UIKit
 import Photos
-import PropertyKit
 import Intents
 
 protocol FilterAppDefaults: AppDefaults {

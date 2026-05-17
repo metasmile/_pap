@@ -316,7 +316,6 @@ class CodeKitTests: XCTestCase {
 }
 
 
-import PropertyKit
 
 protocol TestAppDefaults: AppDefaults{
     var valueWithCustomCodableType: CustomCodableType {get set}

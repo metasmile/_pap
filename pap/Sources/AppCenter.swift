@@ -4,7 +4,6 @@
 //
 
 import Foundation
-import PropertyKit
 
 extension AppCenter:AppManagerConfigurable{
     static func configure() -> AppManagerConfig? {

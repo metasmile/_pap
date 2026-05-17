@@ -8,7 +8,6 @@
 
 import UIKit
 import Photos
-import PropertyKit
 import Intents
 
 protocol ArtistAppDefaults: AppDefaults {

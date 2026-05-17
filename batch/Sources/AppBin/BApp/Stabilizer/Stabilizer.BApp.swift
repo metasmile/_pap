@@ -4,8 +4,8 @@
 //
 
 import Foundation
+import UIKit
 import Photos
-import PropertyKit
 
 class _StabilizerAppAsset: AppAsset {
     fileprivate weak var exportSession: AVAssetExportSession?

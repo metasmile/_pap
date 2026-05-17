@@ -6,7 +6,6 @@
 import Foundation
 import UIKit
 import SafariServices
-import PropertyKit
 
 private final class SFSafariViewControllerDelegator: Object, PropertyWatchable, SFSafariViewControllerDelegate{
     fileprivate var didFinish:(() -> ())?

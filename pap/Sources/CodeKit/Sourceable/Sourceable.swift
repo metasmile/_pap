@@ -176,6 +176,7 @@ extension URL: ImageSourceable, DataSourceable, DepthDataSourceable, URLSourceab
     public var asDepthData:AVDepthData? {
 #if targetEnvironment(simulator)
         assert(false,"Use 'asDepthDataMap' instead.")
+        return nil
 #else
         // Create a CGImageSource
         guard let source = CGImageSourceCreateWithURL(self as CFURL, nil) else {

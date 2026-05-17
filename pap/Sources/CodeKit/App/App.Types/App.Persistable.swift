@@ -4,7 +4,6 @@
 //
 
 import Foundation
-import PropertyKit
 
 public protocol AppDefaults: PropertyDefaults{
     var touchedVersion:String? {set get}

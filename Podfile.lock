@@ -1,9 +1,4 @@
 PODS:
-  - Armchair (0.3.7)
-  - CocoaImageHashing (1.7.0)
-  - Crashlytics (3.14.0):
-    - Fabric (~> 1.10.2)
-  - Fabric (1.10.2)
   - Firebase/AdMob (6.14.0):
     - Firebase/CoreOnly
     - Google-Mobile-Ads-SDK (~> 7.50)
@@ -130,13 +125,6 @@ PODS:
     - nanopb/encode (= 0.3.9011)
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
-  - PhoneNumberKit (2.6.0):
-    - PhoneNumberKit/PhoneNumberKitCore (= 2.6.0)
-    - PhoneNumberKit/UIKit (= 2.6.0)
-  - PhoneNumberKit/PhoneNumberKitCore (2.6.0)
-  - PhoneNumberKit/UIKit (2.6.0):
-    - PhoneNumberKit/PhoneNumberKitCore
-  - PropertyKit (1.1)
   - Protobuf (3.11.2)
   - R.swift (5.1.0):
     - R.swift.Library (~> 5.1.0)
@@ -149,18 +137,12 @@ PODS:
     - SwiftLint
 
 DEPENDENCIES:
-  - Armchair (from `https://github.com/UrbanApps/Armchair`)
-  - CocoaImageHashing (from `https://github.com/ameingast/cocoaimagehashing`)
-  - Crashlytics
-  - Fabric
   - Firebase/AdMob
   - Firebase/Core
   - Firebase/MLVision
   - Firebase/MLVisionBarcodeModel
   - Firebase/MLVisionLabelModel
   - Firebase/MLVisionTextModel
-  - PhoneNumberKit (from `https://github.com/blwinters/PhoneNumberKit`, branch `coinninja`)
-  - PropertyKit
   - R.swift
   - SwiftyGif
   - SwiftyStoreKit
@@ -169,8 +151,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - Crashlytics
-    - Fabric
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -191,7 +171,6 @@ SPEC REPOS:
     - GoogleUtilities
     - GTMSessionFetcher
     - nanopb
-    - PropertyKit
     - Protobuf
     - R.swift
     - R.swift.Library
@@ -201,42 +180,18 @@ SPEC REPOS:
     - TagListView
     - TPPDF
 
-EXTERNAL SOURCES:
-  Armchair:
-    :git: https://github.com/UrbanApps/Armchair
-  CocoaImageHashing:
-    :git: https://github.com/ameingast/cocoaimagehashing
-  PhoneNumberKit:
-    :branch: coinninja
-    :git: https://github.com/blwinters/PhoneNumberKit
-
-CHECKOUT OPTIONS:
-  Armchair:
-    :commit: c54a35059c92e0b7e89bf16fea5acd3ff4f46790
-    :git: https://github.com/UrbanApps/Armchair
-  CocoaImageHashing:
-    :commit: 00c2c6c4b54b46b3a0d95f585ef7450797d5c775
-    :git: https://github.com/ameingast/cocoaimagehashing
-  PhoneNumberKit:
-    :commit: 6222471fc7ca66b09cf09326dff9c05536c41233
-    :git: https://github.com/blwinters/PhoneNumberKit
-
 SPEC CHECKSUMS:
-  Armchair: ea2da13f78515da627bd63d9540bd58a50e71562
-  CocoaImageHashing: 2c8efd6dd60f9030cd54086b34ffc48e927821c3
-  Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
-  Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
   Firebase: 0219bb4782eb1406f1b9b0628a2e625484ce910d
   FirebaseAnalytics: f68b9f3f1241385129ae0a83b63627fc420c05e5
   FirebaseCore: 632e05cc5e1199d9147122c16d92305eb04c34bd
   FirebaseCoreDiagnostics: 511f4f3ed7d440bb69127e8b97c2bc8befae639e
   FirebaseCoreDiagnosticsInterop: e9b1b023157e3a2fc6418b5cb601e79b9af7b3a0
   FirebaseInstanceID: ce993a3c3670a8f5d47ce371ac5d143c560608c5
-  FirebaseMLCommon: 074a67e05122b1c9f6401a4e33b2cea3b4efd224
-  FirebaseMLVision: 7a456009787690e3b53436092ae9b635563de8f3
-  FirebaseMLVisionBarcodeModel: 96ef18a75ecdf867244ef2e75c8c1f01517667dc
-  FirebaseMLVisionLabelModel: 7638a20d27219d5baa4b534a62375fc1d5bd077d
-  FirebaseMLVisionTextModel: c264caa3100ca804580bf2a7c1cb9ff390d1f471
+  FirebaseMLCommon: b8e390c725354c194856df096d0a8d64ae42a4c9
+  FirebaseMLVision: 3cf6158ab38b2059ccf8bf785041086bfa06da14
+  FirebaseMLVisionBarcodeModel: a756b66f075a05947b99d0a575cb7e2794d8cb34
+  FirebaseMLVisionLabelModel: b6235daa00c0c9de042bf6a38cd1d887382ab4c0
+  FirebaseMLVisionTextModel: addde256cfe0ba6b6e5626ebcef13932dbd811bc
   Google-Mobile-Ads-SDK: fac081606dbd438d8db57198b83ba8b5f875a601
   GoogleAPIClientForREST: 4acfffd77f1c3c8741b6be9eaed0e603278efbde
   GoogleAppMeasurement: db118eb61a97dd8c4f7014e368d3c335cbbcf80a
@@ -246,8 +201,6 @@ SPEC CHECKSUMS:
   GoogleUtilities: 29bd0d8f850efbd28cff6d99e8b7da1f8d236bcf
   GTMSessionFetcher: 43b8b64263023d4f32caa0b40f4c8bfa3c5f36d8
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
-  PhoneNumberKit: 167ee1f0bbb6efce7c62559e620eae745595532f
-  PropertyKit: 1f183d03dd0d88f6b3a9deadd39aabaeec974be7
   Protobuf: dd1aaea7140debfe4dd0683fb8ef208e527ae153
   R.swift: 8cbc4fc69b740305b6a17c8a8ed968eb788962d9
   R.swift.Library: fa85ce1e0d0b7e818cd9e080df910ba54d2776cc
@@ -257,6 +210,6 @@ SPEC CHECKSUMS:
   TagListView: 987b0bdbb16cd9d9e7c0e2ec32aff37ecba8b173
   TPPDF: 775e9780261879da1af7c802f9e4bf7feb877677
 
-PODFILE CHECKSUM: 73730ac3db5ef0d2b4498daf4cb84349a1a5cf3f
+PODFILE CHECKSUM: cb69b573040ca2957cf4fea19c692c90308f2f3d
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.16.2

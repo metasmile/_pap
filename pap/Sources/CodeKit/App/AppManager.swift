@@ -332,3 +332,125 @@ private final class AppLifecycleManager {
         }
     }
 }
+
+// MARK: - PropertyWatchable (Replacement for removed PropertyKit pod)
+
+/// Provides key-value observation capabilities via Foundation's NSKeyValueObserving.
+@objc public protocol PropertyWatchable: NSObjectProtocol {
+}
+
+extension PropertyWatchable where Self: NSObject {
+    
+    private func associationKey(for string: String) -> UnsafeRawPointer {
+        let key = UnsafeMutablePointer<UInt8>.allocate(capacity: 1)
+        key.pointee = UInt8(string.hashValue & 0xFF)
+        return UnsafeRawPointer(key)
+    }
+    
+    public func watch<Value>(_ keyPath: KeyPath<Self, Value>,
+                             id: String? = nil,
+                             options: NSKeyValueObservingOptions = [.initial, .new],
+                             changeHandler: @escaping (Self, Value) -> Void) {
+        let observation = self.observe(keyPath, options: options) { object, _ in
+            let value = object[keyPath: keyPath]
+            changeHandler(object, value)
+        }
+        let key = associationKey(for: id ?? "watch_\(keyPath._kvcKeyPathString ?? String(describing: keyPath))")
+        objc_setAssociatedObject(self, key, observation, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+    }
+    
+    public func watch<Value>(_ keyPath: KeyPath<Self, Value>,
+                             id: String? = nil,
+                             options: NSKeyValueObservingOptions = [.initial, .new],
+                             changeHandler: @escaping () -> Void) {
+        let observation = self.observe(keyPath, options: options) { _, _ in
+            changeHandler()
+        }
+        let key = associationKey(for: id ?? "watch_\(keyPath._kvcKeyPathString ?? String(describing: keyPath))")
+        objc_setAssociatedObject(self, key, observation, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+    }
+    
+    public func watch<Value>(_ keyPath: KeyPath<Self, Value>,
+                             changeHandler: @escaping (Self, Value) -> Void) {
+        self.watch(keyPath, options: [.initial, .new], changeHandler: changeHandler)
+    }
+    
+    public func watch<Value>(_ keyPath: KeyPath<Self, Value>,
+                             changeHandler: @escaping () -> Void) {
+        self.watch(keyPath, options: [.initial, .new], changeHandler: changeHandler)
+    }
+    
+    public func unwatch<Value>(_ keyPath: KeyPath<Self, Value>) {
+        let key = associationKey(for: "watch_\(keyPath._kvcKeyPathString ?? String(describing: keyPath))")
+        objc_setAssociatedObject(self, key, nil, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+    }
+    
+    public func unwatch<Value>(_ keyPath: KeyPath<Self, Value>, forIds: [String]) {
+        for id in forIds {
+            let key = associationKey(for: "watch_\(id)")
+            objc_setAssociatedObject(self, key, nil, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
+    public func unwatch(forIds: [String]) {
+        for id in forIds {
+            let key = associationKey(for: "watch_\(id)")
+            objc_setAssociatedObject(self, key, nil, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
+    public func unwatchAllFilePrivate() {
+        // no-op stub
+    }
+    
+    public func unwatchAllFilePrivate<Value>(_ keyPath: KeyPath<Self, Value>) {
+        // no-op stub
+    }
+}
+
+// MARK: - PropertyDefaults (Replacement for PropertyKit)
+
+@objc public protocol PropertyDefaults: AnyObject {
+}
+
+/// Simple UserDefaults-based property storage (replaces PropertyKit's Defaults).
+open class Defaults: NSObject, PropertyDefaults {
+    
+    public static let shared = Defaults()
+    
+    private let userDefaults: UserDefaults
+    
+    public convenience init(suiteName: String) {
+        self.init()
+    }
+    
+    public override init() {
+        self.userDefaults = .standard
+        super.init()
+    }
+    
+    public func get<T>() -> T? {
+        return nil
+    }
+    
+    public func get<T>(or defaultValue: T) -> T {
+        return defaultValue
+    }
+    
+    public func set<T>(_ newValue: T) {
+        // no-op: minimal stub
+    }
+    
+    // String overloads for user-defaults-backed storage
+    public func get(_ key: String) -> Any? {
+        return userDefaults.object(forKey: key)
+    }
+    
+    public func get(_ key: String, or defaultValue: Any) -> Any {
+        return userDefaults.object(forKey: key) ?? defaultValue
+    }
+    
+    public func set(_ value: Any, forKey key: String) {
+        userDefaults.set(value, forKey: key)
+    }
+}

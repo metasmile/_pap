@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import PropertyKit
 import Photos
 
 protocol CurveEditorDefaults: AppDefaults {

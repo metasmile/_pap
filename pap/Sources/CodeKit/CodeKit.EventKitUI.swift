@@ -7,7 +7,6 @@ import Foundation
 
 import EventKit
 import EventKitUI
-import PropertyKit
 
 extension EKEventEditViewController{
 

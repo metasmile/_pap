@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import PropertyKit
 import IntentsUI
 
 //WARNING: Do not use this CodeKit/* directly

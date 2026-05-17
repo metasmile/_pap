@@ -5,7 +5,6 @@
 
 import Foundation
 import Photos
-import PropertyKit
 import FirebaseMLVision
 import TagListView
 

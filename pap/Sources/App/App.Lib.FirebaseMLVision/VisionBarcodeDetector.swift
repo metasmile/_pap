@@ -9,32 +9,40 @@
 import Foundation
 import FirebaseMLVision
 
-class VisionBarcodeText: VisionTextBlock {
+protocol VisionItem {
+    var cornerPoints: [NSValue]? { get }
+    var frame: CGRect { get }
+    var text: String { get }
+}
+
+extension VisionTextBlock: VisionItem {}
+
+class VisionBarcodeText: VisionItem {
     var visionBarcode: VisionBarcode
-    
+
     init(visionBarcode: VisionBarcode) {
         self.visionBarcode = visionBarcode
     }
-    
-    override var cornerPoints: [NSValue]? {
+
+    var cornerPoints: [NSValue]? {
         return visionBarcode.cornerPoints
     }
-    
-    override var frame: CGRect {
+
+    var frame: CGRect {
         return visionBarcode.frame
     }
-    
-    override var text: String {
+
+    var text: String {
         return visionBarcode.rawValue ?? ""
     }
 }
 
 extension VisionBarcodeDetector{
-    
+
     func detect(with image: UIImage, _ async: AsyncWaitSignalable) -> [VisionBarcodeText]? {
         let visionImage = VisionImage(image: image)
         var result:[VisionBarcodeText]?
-        
+
         async.begin()
         self.detect(in: visionImage) { (features, error) in
             if let error = error {

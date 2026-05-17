@@ -5,7 +5,6 @@
 
 import Foundation
 import Firebase
-import PropertyKit
 
 //INFO: It is recommended that inserted into only UI actions.
 

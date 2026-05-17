@@ -10,7 +10,6 @@ import UIKit
 import AVFoundation
 import Photos
 import PhotosUI
-import PropertyKit
 import Intents
 
 class CameraApp: NSObject, PropertyWatchable, SApp, LaunchableApp, AppDockApp, PhotoPickerCollectionViewDelegatableApp, AVCaptureDeviceApp {

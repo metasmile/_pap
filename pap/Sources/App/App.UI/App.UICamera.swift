@@ -8,7 +8,6 @@ import UIKit
 import AVFoundation
 import Photos
 import PhotosUI
-import PropertyKit
 
 //INFO: To extend app-specific properties if needed, app developer can manually implement, decide or define whether storing values or getting default in app scope.
 protocol AppUICameraOptions {

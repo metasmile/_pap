@@ -4,7 +4,6 @@
 //
 
 import Foundation
-import PropertyKit
 
 // All Tools - for unlimited free unlock
 struct FreeAllAppsPayment: Payable{

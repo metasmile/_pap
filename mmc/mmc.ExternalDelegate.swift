@@ -4,7 +4,6 @@
 //
 
 import Foundation
-import Armchair
 
 //INFO: if remove this swift file, automatically normal policy
 

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import PropertyKit
 import Vision
 import AVFoundation
 
@@ -77,22 +76,20 @@ class MemoCamApp: NSObject, PropertyWatchable, BApp, LaunchableApp, AppDockApp, 
 }
 
 extension VisionTextResultGroup {
-    static func createResultGroup(with visionTextBlocks: [VisionTextBlock], _ async: AsyncWaitSignalable) -> VisionTextResultGroup {
+    static func createResultGroup(with visionTextBlocks: [VisionTextBlock], barcodes: [VisionBarcodeText] = [], _ async: AsyncWaitSignalable) -> VisionTextResultGroup {
         var resultGroup = VisionTextResultGroup()
 
         let emails = visionTextBlocks.parse(type: VisionTextEmailAddressParser.self, async) ?? []
-        let phoneNumbers = visionTextBlocks.parse(type: VisionTextPhoneNumberParser.self, async) ?? []
         let urls = visionTextBlocks.parse(type: VisionTextURLParser.self, async)?.compactMap { $0.compactMap { $0.scheme == "mailto" ? nil : $0 }.nilEmpty } ?? []
         let addresses = visionTextBlocks.parse(type: VisionTextAddressParser.self, async) ?? []
         let flights = visionTextBlocks.parse(type: VisionTextFlightNumberParser.self, async) ?? []
         let dates = visionTextBlocks.parse(type: VisionTextDateParser.self, async) ?? []
         let currencies = visionTextBlocks.parse(type: VisionTextCurrencyParser.self, async) ?? []
 
-        let barcodes = visionTextBlocks.compactMap({ ($0 as? VisionBarcodeText)?.visionBarcode })
-        resultGroup.barcodes = !barcodes.isEmpty ? barcodes : nil
+        let barcodeValues = barcodes.compactMap({ $0.visionBarcode })
+        resultGroup.barcodes = !barcodeValues.isEmpty ? barcodeValues : nil
 
         resultGroup.emails = !emails.isEmpty ? emails : nil
-        resultGroup.phoneNumbers = !phoneNumbers.isEmpty ? phoneNumbers : nil
         resultGroup.urls = !urls.isEmpty ? urls : nil
         resultGroup.addresses = !addresses.isEmpty ? addresses : nil
         resultGroup.flights = !flights.isEmpty ? flights : nil
@@ -112,7 +109,7 @@ private struct MemoCamAppDetector {
 
     init() {
         textDetector = vision.onDeviceTextRecognizer()
-        barcodeDetector = vision.barcodeDetector()
+        barcodeDetector = vision.barcodeDetector(options: nil)
     }
 
     fileprivate mutating func detectResult(image: UIImage, _ async: AsyncWaitSignalable) -> VisionTextImageDetectResult? {
@@ -122,13 +119,11 @@ private struct MemoCamAppDetector {
 
         var result = VisionTextImageDetectResult(image: image)
 
-        var blocks = visionText.blocks
-        if let barcodes = self.barcodeDetector.detect(with: image, async) {
-            blocks.append(contentsOf: barcodes)
-        }
+        let blocks = visionText.blocks
+        let barcodes = self.barcodeDetector.detect(with: image, async) ?? []
 
-        result.sourceVisionText = CustomVisionText(visionTextBlocks: blocks)
-        result.resultGroup = VisionTextResultGroup.createResultGroup(with: blocks, async)
+        result.sourceVisionText = CustomVisionText(visionTextBlocks: blocks, barcodes: barcodes)
+        result.resultGroup = VisionTextResultGroup.createResultGroup(with: blocks, barcodes: barcodes, async)
 
         return result
     }
@@ -226,21 +221,33 @@ fileprivate protocol ResultPreviewViewDelegate {
 
 fileprivate class CustomVisionText: VisionText {
     private var visionTextBlocks = [VisionTextBlock]()
+    private var visionBarcodes = [VisionBarcodeText]()
+
     required init(visionTextBlocks: [VisionTextBlock]) {
         self.visionTextBlocks.append(contentsOf: visionTextBlocks)
     }
-    
-    override var text: String {
-        return visionTextBlocks.filter({ !($0 is VisionBarcodeText) }).parse(type: VisionTextStringParser.self, AsyncSignal())?.joined() ?? ""
+
+    init(visionTextBlocks: [VisionTextBlock], barcodes: [VisionBarcodeText]) {
+        self.visionTextBlocks.append(contentsOf: visionTextBlocks)
+        self.visionBarcodes = barcodes
     }
-    
+
+    override var text: String {
+        return visionTextBlocks.parse(type: VisionTextStringParser.self, AsyncSignal())?.joined() ?? ""
+    }
+
     override var blocks: [VisionTextBlock] {
         return visionTextBlocks
+    }
+
+    var barcodes: [VisionBarcodeText] {
+        return visionBarcodes
     }
 }
 
 fileprivate struct ResultPreviewItem {
-    var visionTextBlock: VisionTextBlock
+    var visionTextBlock: VisionTextBlock?
+    var visionBarcodeText: VisionBarcodeText?
     var resultGroup: VisionTextResultGroup
 
     init(visionTextBlock: VisionTextBlock, resultGroup: VisionTextResultGroup) {
@@ -248,8 +255,28 @@ fileprivate struct ResultPreviewItem {
         self.resultGroup = resultGroup
     }
 
+    init(visionBarcodeText: VisionBarcodeText, resultGroup: VisionTextResultGroup) {
+        self.visionBarcodeText = visionBarcodeText
+        self.resultGroup = resultGroup
+    }
+
     var quad: CGQuad {
-        return CGQuad(visionTextBlock.cornerPoints?.map { $0.cgPointValue } ?? [])
+        let points = visionTextBlock?.cornerPoints?.map { $0.cgPointValue }
+            ?? visionBarcodeText?.cornerPoints?.map { $0.cgPointValue }
+            ?? []
+        return CGQuad(points)
+    }
+
+    var frame: CGRect {
+        return visionTextBlock?.frame ?? visionBarcodeText?.frame ?? .zero
+    }
+
+    var text: String {
+        return visionTextBlock?.text ?? visionBarcodeText?.text ?? ""
+    }
+
+    var isBarcode: Bool {
+        return visionBarcodeText != nil
     }
 
     func preferredParserIcon() -> UIImage? {
@@ -393,6 +420,15 @@ fileprivate class ResultPreviewView: DesignableView {
                 guard self.resultsInPlainText || resultGroup.isFilled else { continue }
                 self.resultPreviewItems.append(ResultPreviewItem(visionTextBlock: visionTextBlock, resultGroup: resultGroup))
             }
+
+            if let customText = result.sourceVisionText as? CustomVisionText {
+                for barcodeText in customText.barcodes {
+                    var resultGroup = VisionTextResultGroup()
+                    resultGroup.barcodes = [barcodeText.visionBarcode]
+                    guard self.resultsInPlainText || resultGroup.isFilled else { continue }
+                    self.resultPreviewItems.append(ResultPreviewItem(visionBarcodeText: barcodeText, resultGroup: resultGroup))
+                }
+            }
             
             DispatchQueue.main.async {
                 self.layoutIfNeeded()
@@ -419,7 +455,7 @@ fileprivate class ResultPreviewView: DesignableView {
         let insets = UIEdgeInsets(top: -padding / 2, left: -padding / 2, bottom: -padding / 2, right: -padding / 2)
         let quad = resultPreviewItem.quad.inset(by: insets)
         
-        let frame = resultPreviewItem.visionTextBlock.frame.inset(by: insets)
+        let frame = resultPreviewItem.frame.inset(by: insets)
         
         let path = UIBezierPath()
         path.move(to: quad.topLeft)
@@ -434,10 +470,10 @@ fileprivate class ResultPreviewView: DesignableView {
         var cornerRadius = min(20, frame.minLength * 0.2)
         
         //FIXME: it's weird... wrong transform with barcode
-        if resultPreviewItem.visionTextBlock is VisionBarcodeText {
+        if resultPreviewItem.isBarcode {
             let dimmedPath = path
             self.dimmedPath.append(dimmedPath)
-            
+
             cornerRadius = min(4, frame.minLength * 0.1)
         }
         else {
@@ -1160,9 +1196,13 @@ extension MemoCamAppDockContent: ResultPreviewViewDelegate {
 
         if let resultPreviewItem = resultPreviewItem {
             var result = VisionTextImageDetectResult(image: image)
-            result.sourceVisionText = CustomVisionText(visionTextBlocks: [resultPreviewItem.visionTextBlock])
+            if let textBlock = resultPreviewItem.visionTextBlock {
+                result.sourceVisionText = CustomVisionText(visionTextBlocks: [textBlock])
+            } else if let barcodeText = resultPreviewItem.visionBarcodeText {
+                result.sourceVisionText = CustomVisionText(visionTextBlocks: [], barcodes: [barcodeText])
+            }
             if view.resultsInPlainText {
-                result.plainText = resultPreviewItem.visionTextBlock.text
+                result.plainText = resultPreviewItem.text
             }
             result.resultGroup = resultPreviewItem.resultGroup
 

@@ -6,7 +6,6 @@
 import Foundation
 import Photos
 import ImageIO
-import PropertyKit
 private typealias ParamType = AppAsset
 
 public class ExifGhostApp: NSObject, PropertyWatchable,BApp,

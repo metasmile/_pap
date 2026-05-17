@@ -5,7 +5,6 @@
 
 import Foundation
 import UIKit
-import PropertyKit
 
 protocol ChargeButtonAppearanceDefaults:PropertyDefaults{
     var showChargeButtonPercentageInNavigationBar:Bool {set get}

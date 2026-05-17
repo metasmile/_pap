@@ -12,12 +12,10 @@ Must be maintained atomic process. Do not use class, and additional parsing logi
 import Foundation
 import FirebaseMLVision
 import Contacts
-import PhoneNumberKit
 
 public struct VisionTextResultGroup {
     init(){}
 
-    var phoneNumbers:[VisionTextPhoneNumberParser.OutputType]?
     var emails:[VisionTextEmailAddressParser.OutputType]?
     var addresses:[VisionTextAddressParser.OutputType]?
 
@@ -30,8 +28,7 @@ public struct VisionTextResultGroup {
     var barcodes:[VisionBarcode]?
 
     var isFilled:Bool{
-        return self.phoneNumbers?.count ?? 0 > 0
-                || self.emails?.count ?? 0 > 0
+        return self.emails?.count ?? 0 > 0
                 || self.addresses?.count ?? 0 > 0
 
                 || self.dates?.count ?? 0 > 0
@@ -50,64 +47,6 @@ private struct VisionTextNSTextCheckingResult {
             return nil
         }
         return rawText.detectAll(types: types).nilEmpty
-    }
-}
-
-
-public struct VisionTextPhoneNumberParser: VisionTextParser{
-    typealias OutputType = [String]
-
-    private static let phoneNumberKit = PhoneNumberKit()
-
-    private let blockParser = VisionTextTextBlockParser()
-
-    //https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers
-    private let deniedPattern = "[^0-9\\+\\s\\)\\(\\-]|(^\\-)"
-
-    // E.g. XXXX NNNN-NNNN, XX NNNN-NNNN, (XXX) NNNN-NNNN
-    private let prefixSpacePattern = "^([0-9]{2,4})|(\\([0-9]{2,4}\\))$"
-
-    func process(input: FirebaseMLVision.VisionTextBlock) -> VisionTextStringElementsParser.OutputType? {
-        guard let lines = blockParser.process(input: input) else{
-            return nil
-        }
-
-        var phoneNumbers = Set<String>()
-
-        var previousWord:String = ""
-
-        for line in lines{
-            for word in line{
-
-                if let phoneNumber = try? VisionTextPhoneNumberParser.phoneNumberKit.parse(word.trimmed)
-                    , !phoneNumbers.contains(phoneNumber.numberString)
-                    , phoneNumber.type != .notParsed && phoneNumber.type != .unknown
-                    , phoneNumber.numberString.count>0
-                    , !phoneNumber.numberString.matched(deniedPattern){
-
-                    let estimatedPrefix = previousWord.trimmed
-                    if estimatedPrefix.matched(prefixSpacePattern){
-                        phoneNumbers.insert("\(estimatedPrefix)-\(phoneNumber.numberString)")
-                    }else{
-                        phoneNumbers.insert(phoneNumber.numberString)
-                    }
-
-//                    print(phoneNumber.numberString.matched(deniedPattern),
-//                            phoneNumber.type
-//                            , phoneNumber.numberString
-//                            , phoneNumber.adjustedNationalNumber()
-//                            , phoneNumber.countryCode
-//                            , phoneNumber.nationalNumber
-//                            , phoneNumber.numberExtension)
-//
-
-                }
-                previousWord = word
-            }
-
-        }
-
-        return Array<String>(phoneNumbers).nilEmpty
     }
 }
 
@@ -225,14 +164,6 @@ public struct VisionTextContactParser: VisionTextParser, MergingParser{
             for email in emails{
                 let value = CNLabeledValue(label: contact.emailAddresses.count==0 ? label : "\(label) (\(contact.emailAddresses.count))", value: email as NSString)
                 contact.emailAddresses.append(value)
-            }
-        }
-
-        if let phoneNumbers = VisionTextPhoneNumberParser().process(input: input){
-            let label:String = "New Number".localized
-            for number in phoneNumbers{
-                let value = CNLabeledValue(label: contact.phoneNumbers.count==0 ? label : "\(label) (\(contact.phoneNumbers.count))", value: CNPhoneNumber(stringValue: number))
-                contact.phoneNumbers.append(value)
             }
         }
 

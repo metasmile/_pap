@@ -4,7 +4,6 @@
 //
 
 import Foundation
-import PropertyKit
 
 protocol VersionDefaults:PropertyDefaults{
     func initVersionInfo()

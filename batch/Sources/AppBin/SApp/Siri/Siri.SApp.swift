@@ -7,12 +7,10 @@
 //
 
 import UIKit
-import PropertyKit
 import Intents
 import IntentsUI
 
 class SiriApp: NSObject
-    , PropertyWatchable
     , SApp
     , AppDockApp {
     public private(set) lazy var content: AppDockContent? = SiriSettingsDockContent()

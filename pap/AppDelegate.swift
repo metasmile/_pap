@@ -8,10 +8,6 @@
 
 import UIKit
 import Firebase
-import Fabric
-import Crashlytics
-import PropertyKit
-import Armchair
 
 
 @UIApplicationMain
@@ -45,10 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
-#if !DEBUG
-        Fabric.with([Crashlytics.self])
-#endif
 
         FirebaseApp.configure()
 

@@ -5,7 +5,6 @@
 
 import Foundation
 import UIKit
-import PropertyKit
 import TPPDF
 
 private enum Cells {

@@ -311,7 +311,6 @@ fileprivate class _RawEditorTask: AppTaskPrototype, AppTaskable {
 /*
  RawEditorDockContent
  */
-import PropertyKit
 private protocol RawEditorDefaults: AppDefaults{
 
 }

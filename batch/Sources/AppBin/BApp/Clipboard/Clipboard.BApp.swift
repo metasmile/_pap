@@ -8,7 +8,7 @@
 
 import UIKit
 import Photos
-import PropertyKit
+
 
 private typealias ClipboardAppParam = AppAsset
 private struct ClipboardAppResult: AppTaskResultable {
@@ -41,7 +41,7 @@ private class _ClipboardAppTask: AppTaskPrototype, AppTaskable {
     }
 }
 
-class ClipboardApp: NSObject, BApp, PropertyWatchable, AppDockApp, PhotoPickerViewControllerAppearanceDelegatableApp, PhotoPickerCollectionViewDelegatableApp, FinalizableApp {
+class ClipboardApp: NSObject, BApp, AppDockApp, PhotoPickerViewControllerAppearanceDelegatableApp, PhotoPickerCollectionViewDelegatableApp, FinalizableApp {
     public static let taskType: AppTaskable.Type = _ClipboardAppTask.self
     public static let paramType: AppTaskParamable.Type = ClipboardAppParam.self
     
@@ -104,7 +104,7 @@ class ClipboardApp: NSObject, BApp, PropertyWatchable, AppDockApp, PhotoPickerVi
     }
 }
 
-fileprivate class ClipboardAppDockContent: NSObject, PropertyWatchable, AppDockContent {
+fileprivate class ClipboardAppDockContent: NSObject, AppDockContent {
     lazy var view: UIView = {
         return tableView
     }()

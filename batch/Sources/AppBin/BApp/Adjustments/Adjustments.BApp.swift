@@ -509,7 +509,6 @@ fileprivate class _AdjustmentsAppTask: AppTaskPrototype, AppTaskable {
 /*
  AdjustmentsAppDockContent
  */
-import PropertyKit
 private protocol AdjustmentsAppDefaults: AppDefaults{
     var adjustments: [CIFilterAttributes] { get set }
 }

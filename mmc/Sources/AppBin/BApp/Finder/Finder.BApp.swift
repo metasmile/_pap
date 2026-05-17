@@ -6,7 +6,6 @@
 import Foundation
 import Photos
 import FirebaseMLVision
-import PropertyKit
 import Contacts
 import ContactsUI
 import EventKit

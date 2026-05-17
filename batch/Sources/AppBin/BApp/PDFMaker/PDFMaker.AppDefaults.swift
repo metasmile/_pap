@@ -4,7 +4,6 @@
 //
 
 import Foundation
-import PropertyKit
 import TPPDF
 import Photos
 

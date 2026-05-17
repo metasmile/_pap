@@ -4,7 +4,6 @@
 //
 
 import Foundation
-import PropertyKit
 import CloudKit
 
 private protocol SecretCodeStore:PropertyDefaults{

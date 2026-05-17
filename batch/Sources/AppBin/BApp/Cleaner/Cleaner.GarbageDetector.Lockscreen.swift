@@ -5,8 +5,6 @@
 
 import Foundation
 import Photos
-import PropertyKit
-import CocoaImageHashing
 import MetalPerformanceShaders
 import MetalKit
 import Vision

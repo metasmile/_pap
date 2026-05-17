@@ -7,7 +7,6 @@ import Foundation
 import Photos
 import TPPDF
 import UIKit
-import PropertyKit
 
 private struct PDFMakerAppPHAssetResult: AppTaskResultable {
     public var asset: PHAsset

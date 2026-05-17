@@ -8,7 +8,6 @@
 
 import UIKit
 import Photos
-import PropertyKit
 import MetalPerformanceShaders
 
 protocol ResizerAppDefaults: AppDefaults {
@@ -37,7 +36,7 @@ extension Defaults: ResizerAppDefaults {
     }
 }
 
-public class ResizerAppConfigValue: NSObject, PropertyWatchable, AppConfigAdoptableValuable {
+public class ResizerAppConfigValue: NSObject, AppConfigAdoptableValuable {
     @objc dynamic
     public var filter: ImageEditStateValue?
 
@@ -48,7 +47,7 @@ public class ResizerAppConfigValue: NSObject, PropertyWatchable, AppConfigAdopta
     }
 }
 
-class ResizerApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _ConfigurableApp,
+class ResizerApp: NSObject, BApp, ConfigurableApp, _ConfigurableApp,
     PHAssetFinalizableApp, EditableApp, PreviewProcessableApp, AppDockApp,
     PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDelegatableApp,
 PhotoEditViewControllerDelegatableApp {
@@ -444,7 +443,7 @@ private class CIFrameFilterItem: CIFilterItem {
     }
 }
 
-fileprivate class ResizerAppDockContent: NSObject, PropertyWatchable, AppDockContent {
+fileprivate class ResizerAppDockContent: NSObject, AppDockContent {
     private lazy var filters: [CIFrameFillFilter] = [
         CIFrameFillFilter(aspectRatioOption: AspectRatioOption.original),
         CIFrameFillFilter(aspectRatioOption: AspectRatioOption.square),

@@ -5,7 +5,6 @@
 
 import Foundation
 import Dispatch
-import PropertyKit
 
 public class AppTaskManager: NSObject, PropertyWatchable, AppTaskOperationQueueDelegate {
 

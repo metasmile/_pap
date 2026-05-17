@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import PropertyKit
 import Intents
 import IntentsUI
 

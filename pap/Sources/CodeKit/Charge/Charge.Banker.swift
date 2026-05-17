@@ -4,7 +4,6 @@
 //
 
 import Foundation
-import PropertyKit
 
 protocol ChargeBanker {
     static var version:Int{get}

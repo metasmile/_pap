@@ -4,7 +4,6 @@
 //
 
 import Foundation
-import PropertyKit
 
 protocol papDefaultsPublic:PropertyDefaults{
     var appIdentifier: String?{set get}

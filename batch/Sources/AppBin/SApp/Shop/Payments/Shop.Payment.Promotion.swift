@@ -4,8 +4,6 @@
 //
 
 import Foundation
-import PropertyKit
-import Armchair
 
 struct WelcomeTutorialPayment:Payable{
     //Actually will not be used.
@@ -28,16 +26,8 @@ private extension VerifiablePayable{
     }
 }
 
-private struct AppStoreRatingInitializer{
-    fileprivate static func initialize(){
-        Armchair.appID(InfoStrings.appStoreId)
-        Armchair.useStoreKitReviewPrompt(true)
-    }
-}
-
 struct InAppStoreRatingPayment:VerifiablePayable,PreparablePayable{
     static func prepare(_ asyncSignal: AsyncWaitSignalable) {
-        AppStoreRatingInitializer.initialize()
     }
 
     static var action:PayableAction{
@@ -45,19 +35,7 @@ struct InAppStoreRatingPayment:VerifiablePayable,PreparablePayable{
     }
 
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
-        var paid = false
-        asyncSignal.begin()
-
-        Armchair.onDidDismissModalView { b in
-            paid = true
-            asyncSignal.end()
-            Armchair.onDidDismissModalView(nil)
-        }
-        DispatchQueue.main.async{
-            Armchair.rateApp()
-        }
-        asyncSignal.waitUntilEnd()
-        return paid
+        return true
     }
 
     func verify(_ asyncSignal: AsyncWaitSignalable) -> Bool? {
@@ -67,7 +45,6 @@ struct InAppStoreRatingPayment:VerifiablePayable,PreparablePayable{
 
 struct InAppPromptRatingPayment:VerifiablePayable, PreparablePayable{
     static func prepare(_ asyncSignal: AsyncWaitSignalable) {
-        AppStoreRatingInitializer.initialize()
     }
 
     static var action:PayableAction{
@@ -75,20 +52,9 @@ struct InAppPromptRatingPayment:VerifiablePayable, PreparablePayable{
     }
 
     func pay(_ asyncSignal: AsyncWaitSignalable) -> Bool {
-        var paid = false
-        asyncSignal.begin()
-
         papLog.charge.userHasShownInAppPromptRating()
 
-        DispatchQueue.main.async{
-            Armchair.showPrompt { info in
-                paid = true
-                asyncSignal.end()
-                return true
-            }
-        }
-        asyncSignal.waitUntilEnd()
-        return paid
+        return true
     }
 
     func verify(_ asyncSignal: AsyncWaitSignalable) -> Bool? {

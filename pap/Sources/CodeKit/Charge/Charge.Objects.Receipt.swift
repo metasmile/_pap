@@ -4,7 +4,6 @@
 //
 
 import Foundation
-import PropertyKit
 
 struct ChargeableReceiptVerificationResult{
     let valid:Set<ChargeableReceipt>

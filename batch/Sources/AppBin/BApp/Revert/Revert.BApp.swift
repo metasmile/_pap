@@ -4,8 +4,8 @@
 //
 
 import Foundation
+import UIKit
 import Photos
-import PropertyKit
 
 private typealias RevertAppParam = AppAsset
 private struct RevertAppResult: AppTaskResultable {

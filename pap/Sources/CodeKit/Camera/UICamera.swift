@@ -8,7 +8,6 @@ import UIKit
 import AVFoundation
 import Photos
 import PhotosUI
-import PropertyKit
 
 class UICameraCapturedResult:NSObject{
     let succeed:Bool
