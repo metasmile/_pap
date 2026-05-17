@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import UIKit
 import Photos
 import ImageIO
 private typealias ParamType = AppAsset

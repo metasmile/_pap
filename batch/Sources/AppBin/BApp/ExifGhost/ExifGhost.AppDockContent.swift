@@ -431,7 +431,7 @@ class ExifGhostAppDockContent: NSObject, AppDockContent, UITableViewDelegate, UI
         cell.detailTextLabel?.textColor = UIColor.gray
         cell.optionSwitch.setOn(selected, animated: false)
         cell.optionSwitch.onTintColor = ExifGhostApp.info.themeColor
-        cell.switchDidChange = { on in
+        cell.switchDidChange = { (on: Bool) in
             if on{
                 self.defaults.addHandledProperty(dict.key, dict.items[indexPath.item].key)
             }else{

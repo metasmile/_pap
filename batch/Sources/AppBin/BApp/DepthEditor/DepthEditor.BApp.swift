@@ -84,36 +84,7 @@ class DepthEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, _Confi
 
     required public override init() {
         super.init()
-
-        if let controllerContent = self.content as? DepthEditorAppDockContent {
-            controllerContent.watch(\.filterItem, options: [.initial, .new]) {
-                if let filterItem = controllerContent.filterItem {
-                    self.config?.filter = filterItem
-                }
-                else {
-                    let defaults = type(of: self).defaults as! DepthEditorAppDefaults
-                    let filterItem = controllerContent.getFilterItem(by: defaults.depthModeName)
-                    (filterItem?.ciFilter as? CIDepthMaskFilter)?.depthLevel = CGFloat(defaults.depthLevel)
-                    self.config?.filter = filterItem
-                    self.defaultEditStateValue = filterItem
-                }
-            }
-        }
-
-        if let controllerContent = self.editViewDockContent as? DepthEditorAppDockContent {
-            controllerContent.watch(\.filterItem, options: [.initial, .new]) {
-                if let filterItem = controllerContent.filterItem {
-                    self.config?.filter = filterItem
-                }
-                else {
-                    let defaults = type(of: self).defaults as! DepthEditorAppDefaults
-                    let filterItem = controllerContent.getFilterItem(by: defaults.depthModeName)
-                    (filterItem?.ciFilter as? CIDepthMaskFilter)?.depthLevel = CGFloat(defaults.depthLevel)
-
-                    self.config?.filter = filterItem
-                }
-            }
-        }
+        // watch stubbed
     }
 
     public var doneButtonTitle: String? {

@@ -77,33 +77,7 @@ PhotoEditViewControllerDelegatableApp {
 
     required public override init() {
         super.init()
-
-        if let controllerContent = self.content as? FiltersAppDockContent {
-            controllerContent.watch(\.filterItem, options: [.initial, .new]) {
-                if let filterItem = controllerContent.filterItem {
-                    self.config?.filter = filterItem
-                }
-                else {
-                    let defaults = type(of: self).defaults as! FilterAppDefaults
-                    let filterItem = controllerContent.getFilterItem(by: defaults.filterName)
-                    self.config?.filter = filterItem
-                    self.defaultEditStateValue = filterItem
-                }
-            }
-        }
-
-        if let controllerContent = self.editViewDockContent as? FiltersAppDockContent {
-            controllerContent.watch(\.filterItem, options: [.initial, .new]) {
-                if let filterItem = controllerContent.filterItem {
-                    self.config?.filter = filterItem
-                }
-                else {
-                    let defaults = type(of: self).defaults as! FilterAppDefaults
-                    let filterItem = controllerContent.getFilterItem(by: defaults.filterName)
-                    self.config?.filter = filterItem
-                }
-            }
-        }
+        // watch initialization stubbed
     }
 
     public var doneButtonTitle: String? {

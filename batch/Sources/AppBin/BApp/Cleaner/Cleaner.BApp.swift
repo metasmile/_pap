@@ -84,7 +84,7 @@ public class CleanerApp: NSObject, BApp, LaunchableApp, PHAssetFinalizableApp, P
         return true
     }
 
-    public private(set) lazy var autoSelect: Bool = false
+    public fileprivate(set) lazy var autoSelect: Bool = false
 
     fileprivate static var DefaultEnabledGDTypes:[PHAssetGarbageDetector.Type]{
         return [

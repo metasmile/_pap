@@ -160,33 +160,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
 
     required public override init() {
         super.init()
-
-        let controllerContent = self.content as? AdjustmentsAppDockContent
-        controllerContent?.watch(\.filter, options: [.initial, .new]) {
-            if let filter = controllerContent?.filter {
-                self.config?.filter = CIFilterItem(filter)
-            }
-            else if let defaults = type(of: self).defaults as? AdjustmentsAppDefaults {
-                let filter = controllerContent?.preferredFilter(with: defaults.adjustments)
-
-                let filterItem = CIFilterItem(filter)
-                self.config?.filter = filterItem
-                self.defaultEditStateValue = filterItem
-            }
-        }
-
-        let controllerContentInPhotoEditor = self.editViewDockContent as? AdjustmentsAppDockContent
-        controllerContentInPhotoEditor?.watch(\.filter, options: [.initial, .new]) {
-            if let filter = controllerContentInPhotoEditor?.filter {
-                self.config?.filter = CIFilterItem(filter)
-            }
-            else if let defaults = type(of: self).defaults as? AdjustmentsAppDefaults {
-                let filter = controllerContent?.preferredFilter(with: defaults.adjustments)
-
-                let filterItem = CIFilterItem(filter)
-                self.config?.filter = filterItem
-            }
-        }
+        // watch stubbed
     }
 
     public var doneButtonTitle: String? {

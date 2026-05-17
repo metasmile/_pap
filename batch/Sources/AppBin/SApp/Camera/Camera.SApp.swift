@@ -200,7 +200,7 @@ fileprivate class CameraAppDockContent: NSObject, PropertyWatchable, AppDockCont
 
         (view as? CameraAppView)?.isCompactMode = dock.contentLayoutState != .maximized
 
-        cameraView?.watch(\.capturedResult) {
+        cameraView?.watch(\.capturedResult as KeyPath<UICamera, UICameraCapturedResult?>) {
             if let capturedResult = self.cameraView?.capturedResult, let results = capturedResult.results{
                 var data = [AppLaunchOptionsKey: Any]()
                 if let photoUrl = results[UICameraCaptureProcessorResultKey.photoURL] {
@@ -285,7 +285,8 @@ fileprivate class CameraAppDockContent: NSObject, PropertyWatchable, AppDockCont
         guard let cameraView = cameraView else{ return }
 
         let capturedResultId = "capturedResult"
-        cameraView.watch(\.capturedResult, id: capturedResultId) {
+        typealias C = UICamera
+            cameraView.watch(\.capturedResult as KeyPath<C, UICameraCapturedResult?>, id: capturedResultId) {
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay) {
                 cameraView.switchCaptureDevicePosition()
             }

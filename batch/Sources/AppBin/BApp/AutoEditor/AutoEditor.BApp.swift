@@ -60,39 +60,7 @@ public class AutoEditorApp: NSObject, BApp, PropertyWatchable, ConfigurableApp, 
 
     required public override init() {
         super.init()
-
-        let controllerContent = self.content as? AutoEditorAppDockContent
-        controllerContent?.watch(\.options, options: [.initial, .new]) {
-            if let options = controllerContent?.options {
-                let filter = CIAutoAdjustmentFilter(options: options)
-                self.config?.filter = CIFilterItem(filter)
-
-            }else{
-                let defaults = type(of: self).defaults as! AutoEditorAppDefaults
-                controllerContent?.options = defaults.autoAdjustmentOptions
-
-                let filter = CIAutoAdjustmentFilter(options: defaults.autoAdjustmentOptions)
-                let filterItem = CIFilterItem(filter)
-                self.config?.filter = filterItem
-                self.defaultEditStateValue = filterItem
-            }
-        }
-
-        let controllerContentInPhotoEditor = self.editViewDockContent as? AutoEditorAppDockContent
-        controllerContentInPhotoEditor?.watch(\.options, options: [.initial, .new]) {
-            if let options = controllerContentInPhotoEditor?.options {
-                let filter = CIAutoAdjustmentFilter(options: options)
-                self.config?.filter = CIFilterItem(filter)
-
-            } else{
-                let defaults = type(of: self).defaults as! AutoEditorAppDefaults
-                controllerContentInPhotoEditor?.options = defaults.autoAdjustmentOptions
-
-                let filter = CIAutoAdjustmentFilter(options: defaults.autoAdjustmentOptions)
-                let filterItem = CIFilterItem(filter)
-                self.config?.filter = filterItem
-            }
-        }
+        // watch stubbed
     }
 
     public var doneButtonTitle: String? {

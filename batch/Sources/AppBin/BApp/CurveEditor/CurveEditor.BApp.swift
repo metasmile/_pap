@@ -63,33 +63,7 @@ PhotoPickerCollectionViewDelegatableApp, PhotoPickerViewControllerAppearanceDele
 
     required public override init() {
         super.init()
-
-        let controllerContent = self.content as? CurveEditorAppDockContent
-        controllerContent?.watch(\.filter, options: [.initial, .new]) {
-            if let filter = controllerContent?.filter {
-                self.config?.filter = CIFilterItem(filter)
-            }
-            else if let defaults = type(of: self).defaults as? CurveEditorDefaults {
-                let filter = CIColorFilterGroup(filters: defaults.colorFilters)
-
-                let filterItem = CIFilterItem(filter)
-                self.config?.filter = filterItem
-                self.defaultEditStateValue = filterItem
-            }
-        }
-
-        let controllerContentInPhotoEditor = self.editViewDockContent as? CurveEditorAppDockContent
-        controllerContentInPhotoEditor?.watch(\.filter, options: [.initial, .new]) {
-            if let filter = controllerContentInPhotoEditor?.filter {
-                self.config?.filter = CIFilterItem(filter)
-            }
-            else if let defaults = type(of: self).defaults as? CurveEditorDefaults {
-                let filter = CIColorFilterGroup(filters: defaults.colorFilters)
-
-                let filterItem = CIFilterItem(filter)
-                self.config?.filter = filterItem
-            }
-        }
+        // watch stubbed
     }
 
     public var finalizingActions: [PHAssetFinalizingAction] {

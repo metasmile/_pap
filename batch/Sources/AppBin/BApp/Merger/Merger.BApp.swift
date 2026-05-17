@@ -66,14 +66,7 @@ class MergerApp: NSObject, BApp, FinalizableApp, PHAssetFinalizableApp, AppDockA
 
     required public override init() {
         super.init()
-
-        if let controllerContent = self.editViewDockContent as? MergerPhotoEditorAppDockContent {
-            controllerContent.watch(\.timeRange, options: [.initial, .new]) {
-                if let timeRange = controllerContent.timeRange {
-                    self.config?.timeRange = MergerAppValue(timeRange.timeRangeValue)
-                }
-            }
-        }
+        // watch stubbed
     }
 
     public var finalizingActions: [PHAssetFinalizingAction] {

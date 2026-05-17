@@ -190,10 +190,8 @@ extension Array where Element:VisionTextDetectResult {
                                 event.endDate = date
 
                                 //insert Note with original plain text
-                                if let visionText = item.sourceVisionText {
-
-                                    let syncParser = VisionTextStringParser()
-                                    event.notes = visionText.blocks.compactMap { syncParser.process(input: $0) }.joined()
+                                if let plainText = item.plainText {
+                                    event.notes = plainText
                                 }
 
                                 EKEventEditViewController.presentDialog(newEvent: event, didDismiss: { action in
@@ -683,7 +681,7 @@ extension Array where Element:VisionTextDetectResult {
                     })
                 }
                 
-                let actionTitle = item.sourceVisionText?.blocks.count == 1 ? "Get Text".localized :  "Get All Text".localized
+                let actionTitle = (item.plainText ?? "").components(separatedBy: "\n").count <= 1 ? "Get Text".localized :  "Get All Text".localized
                 
                 if isQuickActionOnly{
                     action = _quickAction(actionTitle)

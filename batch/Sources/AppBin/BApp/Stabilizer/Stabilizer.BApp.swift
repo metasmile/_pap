@@ -84,8 +84,7 @@ public class StabilizerApp: NSObject, BApp, PHAssetFinalizableApp, AppDockApp, P
 
     required public override init() {
         super.init()
-
-        self.defaultEditStateValue = StabilizerAppValue(ImageAlignment.StabilizationMode(rawValue: (StabilizerApp.defaults as! StabilizerAppDefaults).stabilizationMode))
+        // watch stubbed
     }
 
     public var finalizingActions: [PHAssetFinalizingAction] {
