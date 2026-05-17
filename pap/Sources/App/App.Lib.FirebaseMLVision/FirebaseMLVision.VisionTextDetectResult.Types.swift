@@ -15,7 +15,7 @@ struct VisionTextPHAssetDetectResult: VisionTextDetectResult, AppTaskResultable 
         self.asset = asset
     }
 
-    var sourceVisionText:VisionText?
+    var sourceVisionText: Any = CustomVisionTextNull()
 
     var plainText:String?
 
@@ -32,7 +32,7 @@ struct VisionTextImageDetectResult: VisionTextDetectResult, AppTaskResultable {
         self.image = image
     }
 
-    var sourceVisionText:VisionText?
+    var sourceVisionText: Any = CustomVisionTextNull()
 
     var plainText:String?
 
@@ -41,3 +41,5 @@ struct VisionTextImageDetectResult: VisionTextDetectResult, AppTaskResultable {
     var resultGroup: VisionTextResultGroup?
 }
 
+class CustomVisionTextNull: NSObject {
+}

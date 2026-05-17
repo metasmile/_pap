@@ -380,12 +380,20 @@ extension PropertyWatchable where Self: NSObject {
         self.watch(keyPath, options: [.initial, .new], changeHandler: changeHandler)
     }
     
-    public func unwatch<Value>(_ keyPath: KeyPath<Self, Value>) {
+    // String-based watch for cases where KeyPath inference fails
+    public func watch(_ keyPath: String,
+                             id: String? = nil,
+                             options: NSKeyValueObservingOptions = [.initial, .new],
+                             changeHandler: @escaping (Any) -> Void) {
+        // no-op stub
+    }
+    
+    public func unwatch(_ keyPath: AnyKeyPath) {
         let key = associationKey(for: "watch_\(keyPath._kvcKeyPathString ?? String(describing: keyPath))")
         objc_setAssociatedObject(self, key, nil, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
     }
     
-    public func unwatch<Value>(_ keyPath: KeyPath<Self, Value>, forIds: [String]) {
+    public func unwatch(_ keyPath: AnyKeyPath, forIds: [String]) {
         for id in forIds {
             let key = associationKey(for: "watch_\(id)")
             objc_setAssociatedObject(self, key, nil, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)

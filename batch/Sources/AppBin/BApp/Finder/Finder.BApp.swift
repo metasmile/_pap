@@ -427,7 +427,6 @@ private struct FinderAppDetector{
             }
 
             if selectedParserTypes.contains(ParserItem.Key.PhoneNumber){
-                resultGroup.phoneNumbers = visionText.blocks.parse(type: VisionTextPhoneNumberParser.self, async)
             }
 
             if selectedParserTypes.contains(ParserItem.Key.URL){
@@ -467,8 +466,6 @@ private struct FinderAppDetector{
 private class _FinderAppTask: AppTaskPrototypeDefaultRestrictedConcurrency, AppTaskable {
 
     private let emailParser = VisionTextEmailAddressParser()
-    private let phoneNumberParser = VisionTextPhoneNumberParser()
-
     public func cancel(_ param: AppTaskParamable, _ async: AsyncWaitSignalable){}
 
     public func perform(_ param: AppTaskParamable, _ async: AsyncWaitSignalable) throws -> AppTaskResultable? {

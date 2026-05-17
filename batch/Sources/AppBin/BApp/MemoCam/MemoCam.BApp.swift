@@ -109,7 +109,7 @@ private struct MemoCamAppDetector {
 
     init() {
         textDetector = vision.onDeviceTextRecognizer()
-        barcodeDetector = vision.barcodeDetector(options: nil)
+        barcodeDetector = vision.barcodeDetector()
     }
 
     fileprivate mutating func detectResult(image: UIImage, _ async: AsyncWaitSignalable) -> VisionTextImageDetectResult? {
@@ -122,7 +122,7 @@ private struct MemoCamAppDetector {
         let blocks = visionText.blocks
         let barcodes = self.barcodeDetector.detect(with: image, async) ?? []
 
-        result.sourceVisionText = CustomVisionText(visionTextBlocks: blocks, barcodes: barcodes)
+        result.sourceVisionText = CustomVisionText(visionTextBlocks: blocks, barcodes: barcodes) as Any
         result.resultGroup = VisionTextResultGroup.createResultGroup(with: blocks, barcodes: barcodes, async)
 
         return result
@@ -219,11 +219,11 @@ fileprivate protocol ResultPreviewViewDelegate {
     func resultPreviewView(_ view: ResultPreviewView, didSelectItemWith resultPreviewItem: ResultPreviewItem?)
 }
 
-fileprivate class CustomVisionText: VisionText {
+fileprivate class CustomVisionText {
     private var visionTextBlocks = [VisionTextBlock]()
     private var visionBarcodes = [VisionBarcodeText]()
 
-    required init(visionTextBlocks: [VisionTextBlock]) {
+    init(visionTextBlocks: [VisionTextBlock]) {
         self.visionTextBlocks.append(contentsOf: visionTextBlocks)
     }
 
@@ -232,11 +232,11 @@ fileprivate class CustomVisionText: VisionText {
         self.visionBarcodes = barcodes
     }
 
-    override var text: String {
+    var text: String {
         return visionTextBlocks.parse(type: VisionTextStringParser.self, AsyncSignal())?.joined() ?? ""
     }
 
-    override var blocks: [VisionTextBlock] {
+    var blocks: [VisionTextBlock] {
         return visionTextBlocks
     }
 
@@ -284,7 +284,7 @@ fileprivate struct ResultPreviewItem {
             return nil
         }
 
-        if resultGroup.phoneNumbers?.count ?? 0 > 0 || resultGroup.barcodes?.contains(where: { $0.valueType == .phone }) == true {
+        if resultGroup.barcodes?.contains(where: { $0.valueType == .phone }) == true {
             return R.image.appActionIconEmbossPhoneCall()
         } else if resultGroup.emails?.count ?? 0 > 0 || resultGroup.barcodes?.contains(where: { $0.valueType == .email }) == true {
             return R.image.appActionIconEmail()
@@ -414,7 +414,8 @@ fileprivate class ResultPreviewView: DesignableView {
         DispatchQueue.global(qos: .userInteractive).async {
             self.resultPreviewItems.removeAll()
 
-            for visionTextBlock in result.sourceVisionText?.blocks ?? [] {
+            let customText = result.sourceVisionText as? CustomVisionText
+            for visionTextBlock in customText?.blocks ?? [] {
                 let resultGroup = VisionTextResultGroup.createResultGroup(with: [visionTextBlock], async)
                 
                 guard self.resultsInPlainText || resultGroup.isFilled else { continue }
@@ -1185,7 +1186,7 @@ extension MemoCamAppDockContent: ResultPreviewViewDelegate {
     @objc fileprivate func actionButtonDidTap() {
         if var results = self.resultPreviewView.detectResult {
             if resultPreviewView.resultsInPlainText {
-                results.plainText = results.sourceVisionText?.text
+                results.plainText = (results.sourceVisionText as? CustomVisionText)?.text
             }
             self.showActions(with: [results])
         }

@@ -21,7 +21,6 @@ extension AppCenter{
             , RevertApp.self
             , PDFMakerApp.self
             , CameraApp.self
-            , ShopApp.self
             , AutoEditorApp.self
             , ExifGhostApp.self
             , SiriApp.self

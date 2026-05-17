@@ -11,7 +11,6 @@ extension AppColorTheme:AppColorDefaultThemeExternalDelegate{
 
 extension AppDelegate: AppDelegateExternalDelegate{
     public func willFinishLaunching() {
-        StoreKitPayableCenter.configure()
     }
 
     public func didFinishLaunching() {
